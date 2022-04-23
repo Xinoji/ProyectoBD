@@ -1,0 +1,204 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{80BAAF37-40CE-4875-80CF-3C06179B327D}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>ProyectoBD</RootNamespace>
+    <AssemblyName>ProyectoBD</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
+    <Reference Include="System.Xaml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BD\conexionDb.cs" />
+    <Compile Include="FormPrincipal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormPrincipal.Designer.cs">
+      <DependentUpon>FormPrincipal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LitoDataSet.cs">
+      <DependentUpon>LitoDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="LitoDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LitoDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Logica\Concentrado.cs" />
+    <Compile Include="Logica\Llenado.cs" />
+    <Compile Include="Logica\PreventivoCheck.cs" />
+    <Compile Include="Logica\Dashboard.cs" />
+    <Compile Include="Modelos\Class1.cs" />
+    <Compile Include="Modelos\ControlDatosCorrectivo.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Modelos\ControlDatosCorrectivo.Designer.cs">
+      <DependentUpon>ControlDatosCorrectivo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Modelos\FormIngresoPreventivo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modelos\FormIngresoPreventivo.Designer.cs">
+      <DependentUpon>FormIngresoPreventivo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Modelos\FormConcentrado.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modelos\FormConcentrado.Designer.cs">
+      <DependentUpon>FormConcentrado.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Modelos\FormDashboard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modelos\FormDashboard.Designer.cs">
+      <DependentUpon>FormDashboard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Modelos\FormInventario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modelos\FormInventario.Designer.cs">
+      <DependentUpon>FormInventario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Modelos\ControlPreventivoCheck.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Modelos\ControlPreventivoCheck.Designer.cs">
+      <DependentUpon>ControlPreventivoCheck.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Modelos\ControlDatosPreventivos.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Modelos\ControlDatosPreventivos.Designer.cs">
+      <DependentUpon>ControlDatosPreventivos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Modelos\FormLlenado.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modelos\FormLlenado.Designer.cs">
+      <DependentUpon>FormLlenado.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Modelos\FormPreventivo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modelos\FormPreventivo.Designer.cs">
+      <DependentUpon>FormPreventivo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Modelos\ControlPlan.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Modelos\ControlPlan.Designer.cs">
+      <DependentUpon>ControlPlan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WinTheme.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="FormPrincipal.resx">
+      <DependentUpon>FormPrincipal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modelos\ControlDatosCorrectivo.resx">
+      <DependentUpon>ControlDatosCorrectivo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modelos\FormConcentrado.resx">
+      <DependentUpon>FormConcentrado.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modelos\FormDashboard.resx">
+      <DependentUpon>FormDashboard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modelos\FormIngresoPreventivo.resx">
+      <DependentUpon>FormIngresoPreventivo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modelos\FormInventario.resx">
+      <DependentUpon>FormInventario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modelos\ControlPreventivoCheck.resx">
+      <DependentUpon>ControlPreventivoCheck.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modelos\ControlDatosPreventivos.resx">
+      <DependentUpon>ControlDatosPreventivos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modelos\FormLlenado.resx">
+      <DependentUpon>FormLlenado.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modelos\FormPreventivo.resx">
+      <DependentUpon>FormPreventivo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modelos\ControlPlan.resx">
+      <DependentUpon>ControlPlan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <None Include="LitoDataSet.xsc">
+      <DependentUpon>LitoDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="LitoDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>LitoDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="LitoDataSet.xss">
+      <DependentUpon>LitoDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
