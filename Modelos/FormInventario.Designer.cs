@@ -29,11 +29,10 @@
         private void InitializeComponent()
         {
             this.dgvinventario = new System.Windows.Forms.DataGridView();
-            this.btnAD = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.btnaActualizar = new System.Windows.Forms.Button();
+            this.Buscar = new System.Windows.Forms.Button();
             this.txtCodigo = new System.Windows.Forms.TextBox();
-            this.txtActualizar = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvinventario)).BeginInit();
             this.SuspendLayout();
             // 
@@ -41,65 +40,59 @@
             // 
             this.dgvinventario.AllowUserToAddRows = false;
             this.dgvinventario.AllowUserToDeleteRows = false;
+            this.dgvinventario.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvinventario.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvinventario.Location = new System.Drawing.Point(12, 12);
             this.dgvinventario.Name = "dgvinventario";
-            this.dgvinventario.Size = new System.Drawing.Size(581, 426);
+            this.dgvinventario.Size = new System.Drawing.Size(556, 426);
             this.dgvinventario.TabIndex = 0;
             this.dgvinventario.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvinventario_CellContentClick);
             // 
-            // btnAD
+            // btnaActualizar
             // 
-            this.btnAD.Location = new System.Drawing.Point(668, 156);
-            this.btnAD.Name = "btnAD";
-            this.btnAD.Size = new System.Drawing.Size(75, 23);
-            this.btnAD.TabIndex = 1;
-            this.btnAD.Text = "ActualizarD";
-            this.btnAD.UseVisualStyleBackColor = true;
-            this.btnAD.Click += new System.EventHandler(this.button1_Click);
+            this.btnaActualizar.Location = new System.Drawing.Point(622, 207);
+            this.btnaActualizar.Name = "btnaActualizar";
+            this.btnaActualizar.Size = new System.Drawing.Size(134, 71);
+            this.btnaActualizar.TabIndex = 1;
+            this.btnaActualizar.Text = "Actualizar Datos";
+            this.btnaActualizar.UseVisualStyleBackColor = true;
+            this.btnaActualizar.Click += new System.EventHandler(this.btnaActualizar_Click);
             // 
-            // button2
+            // Buscar
             // 
-            this.button2.Location = new System.Drawing.Point(668, 307);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 2;
-            this.button2.Text = "button2";
-            this.button2.UseVisualStyleBackColor = true;
-            // 
-            // button3
-            // 
-            this.button3.Location = new System.Drawing.Point(668, 257);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 23);
-            this.button3.TabIndex = 3;
-            this.button3.Text = "button3";
-            this.button3.UseVisualStyleBackColor = true;
+            this.Buscar.Location = new System.Drawing.Point(688, 105);
+            this.Buscar.Name = "Buscar";
+            this.Buscar.Size = new System.Drawing.Size(100, 20);
+            this.Buscar.TabIndex = 2;
+            this.Buscar.Text = "Buscar Producto";
+            this.Buscar.UseVisualStyleBackColor = true;
+            this.Buscar.Click += new System.EventHandler(this.Buscar_Click);
             // 
             // txtCodigo
             // 
-            this.txtCodigo.Location = new System.Drawing.Point(656, 92);
+            this.txtCodigo.Location = new System.Drawing.Point(688, 64);
             this.txtCodigo.Name = "txtCodigo";
             this.txtCodigo.Size = new System.Drawing.Size(100, 20);
             this.txtCodigo.TabIndex = 4;
             // 
-            // txtActualizar
+            // label1
             // 
-            this.txtActualizar.Location = new System.Drawing.Point(656, 197);
-            this.txtActualizar.Name = "txtActualizar";
-            this.txtActualizar.Size = new System.Drawing.Size(100, 20);
-            this.txtActualizar.TabIndex = 5;
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(574, 67);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(108, 13);
+            this.label1.TabIndex = 6;
+            this.label1.Text = "Codigo Del Producto:";
             // 
             // FormInventario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.txtActualizar);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.txtCodigo);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.btnAD);
+            this.Controls.Add(this.Buscar);
+            this.Controls.Add(this.btnaActualizar);
             this.Controls.Add(this.dgvinventario);
             this.Name = "FormInventario";
             this.Text = "FormInventario";
@@ -113,10 +106,9 @@
         #endregion
 
         private System.Windows.Forms.DataGridView dgvinventario;
-        private System.Windows.Forms.Button btnAD;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button btnaActualizar;
+        private System.Windows.Forms.Button Buscar;
         private System.Windows.Forms.TextBox txtCodigo;
-        private System.Windows.Forms.TextBox txtActualizar;
+        private System.Windows.Forms.Label label1;
     }
 }
