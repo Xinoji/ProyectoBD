@@ -10,6 +10,8 @@ namespace ProyectoBD
 {
     public class WinTheme
     {
+        const int RGBMAX = 255;
+
         //Extern methods
         [DllImport("uxtheme.dll", EntryPoint = "#95")]
         private static extern uint GetImmersiveColorFromColorSetEx(uint dwImmersiveColorSet, uint dwImmersiveColorType,
@@ -37,5 +39,15 @@ namespace ProyectoBD
             //byte alphaColor = (byte)((0xFF000000 & colorSetEx) >> 24);
             return Color.FromArgb(redColor, greenColor, blueColor);
         }
+
+        public static Color InvertMeAColour(Color ColourToInvert)
+        {
+            return Color.FromArgb(RGBMAX - ColourToInvert.R,
+              RGBMAX - ColourToInvert.G, RGBMAX - ColourToInvert.B);
+        }
     }
+    
+    
 }
+
+
