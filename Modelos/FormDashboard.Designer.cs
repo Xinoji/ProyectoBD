@@ -28,14 +28,26 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea5 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend5 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series9 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series10 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea6 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend6 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series11 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series12 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea41 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend41 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series81 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series82 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle241 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle242 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle243 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle244 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle245 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle246 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle247 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle248 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle249 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle250 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle251 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle252 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea42 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend42 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series83 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series84 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.tablaHrsParada = new System.Windows.Forms.DataGridView();
             this.chartPareto = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.dtpEndDate = new System.Windows.Forms.DateTimePicker();
@@ -43,83 +55,96 @@
             this.btnMes = new System.Windows.Forms.Button();
             this.btnCustom = new System.Windows.Forms.Button();
             this.dtpStartDate = new System.Windows.Forms.DateTimePicker();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
-            this.Col1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridView3 = new System.Windows.Forms.DataGridView();
-            this.PlanB = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridView4 = new System.Windows.Forms.DataGridView();
-            this.planC = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridView5 = new System.Windows.Forms.DataGridView();
-            this.planD = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tablaA = new System.Windows.Forms.DataGridView();
+            this.tablaB = new System.Windows.Forms.DataGridView();
+            this.tablaC = new System.Windows.Forms.DataGridView();
+            this.tablaD = new System.Windows.Forms.DataGridView();
             this.chartDisponibilidad = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.label1 = new System.Windows.Forms.Label();
-            this.colorDialog1 = new System.Windows.Forms.ColorDialog();
             this.btnOk = new System.Windows.Forms.Button();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.lblStartDate = new System.Windows.Forms.Label();
+            this.lblEndDate = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.tablaHrsParada)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chartPareto)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tablaA)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tablaB)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tablaC)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tablaD)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chartDisponibilidad)).BeginInit();
             this.SuspendLayout();
             // 
             // tablaHrsParada
             // 
+            this.tablaHrsParada.AllowUserToAddRows = false;
+            this.tablaHrsParada.AllowUserToDeleteRows = false;
+            this.tablaHrsParada.AllowUserToResizeColumns = false;
+            this.tablaHrsParada.AllowUserToResizeRows = false;
             this.tablaHrsParada.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.tablaHrsParada.BackgroundColor = System.Drawing.Color.White;
+            this.tablaHrsParada.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
+            this.tablaHrsParada.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             this.tablaHrsParada.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.tablaHrsParada.EnableHeadersVisualStyles = false;
             this.tablaHrsParada.Location = new System.Drawing.Point(724, 551);
             this.tablaHrsParada.Name = "tablaHrsParada";
             this.tablaHrsParada.RowHeadersVisible = false;
+            this.tablaHrsParada.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.tablaHrsParada.Size = new System.Drawing.Size(848, 298);
             this.tablaHrsParada.TabIndex = 1;
             // 
             // chartPareto
             // 
-            chartArea5.AxisX.Interval = 1D;
-            chartArea5.AxisX.LabelStyle.IsStaggered = true;
-            chartArea5.AxisX.TextOrientation = System.Windows.Forms.DataVisualization.Charting.TextOrientation.Horizontal;
-            chartArea5.AxisY.Enabled = System.Windows.Forms.DataVisualization.Charting.AxisEnabled.False;
-            chartArea5.AxisY2.InterlacedColor = System.Drawing.Color.White;
-            chartArea5.AxisY2.IsMarginVisible = false;
-            chartArea5.AxisY2.LineWidth = 0;
-            chartArea5.AxisY2.Maximum = 100D;
-            chartArea5.AxisY2.Minimum = 0D;
-            chartArea5.Name = "ChartArea1";
-            this.chartPareto.ChartAreas.Add(chartArea5);
-            legend5.Enabled = false;
-            legend5.Name = "Legend1";
-            this.chartPareto.Legends.Add(legend5);
+            chartArea41.AxisX.Interval = 1D;
+            chartArea41.AxisX.LabelStyle.IsStaggered = true;
+            chartArea41.AxisX.TextOrientation = System.Windows.Forms.DataVisualization.Charting.TextOrientation.Horizontal;
+            chartArea41.AxisY.Enabled = System.Windows.Forms.DataVisualization.Charting.AxisEnabled.False;
+            chartArea41.AxisY2.InterlacedColor = System.Drawing.Color.White;
+            chartArea41.AxisY2.IsMarginVisible = false;
+            chartArea41.AxisY2.LineWidth = 0;
+            chartArea41.AxisY2.Maximum = 100D;
+            chartArea41.AxisY2.Minimum = 0D;
+            chartArea41.Name = "ChartArea1";
+            this.chartPareto.ChartAreas.Add(chartArea41);
+            legend41.Enabled = false;
+            legend41.Name = "Legend1";
+            this.chartPareto.Legends.Add(legend41);
             this.chartPareto.Location = new System.Drawing.Point(12, 226);
             this.chartPareto.Name = "chartPareto";
-            series9.ChartArea = "ChartArea1";
-            series9.IsValueShownAsLabel = true;
-            series9.Legend = "Legend1";
-            series9.Name = "Series1";
-            series9.YValuesPerPoint = 6;
-            series10.ChartArea = "ChartArea1";
-            series10.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series10.Legend = "Legend1";
-            series10.Name = "Series2";
-            series10.YAxisType = System.Windows.Forms.DataVisualization.Charting.AxisType.Secondary;
-            this.chartPareto.Series.Add(series9);
-            this.chartPareto.Series.Add(series10);
-            this.chartPareto.Size = new System.Drawing.Size(706, 623);
+            series81.ChartArea = "ChartArea1";
+            series81.IsValueShownAsLabel = true;
+            series81.Legend = "Legend1";
+            series81.Name = "Series1";
+            series81.YValuesPerPoint = 6;
+            series82.ChartArea = "ChartArea1";
+            series82.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series82.Legend = "Legend1";
+            series82.Name = "Series2";
+            series82.YAxisType = System.Windows.Forms.DataVisualization.Charting.AxisType.Secondary;
+            this.chartPareto.Series.Add(series81);
+            this.chartPareto.Series.Add(series82);
+            this.chartPareto.Size = new System.Drawing.Size(695, 623);
             this.chartPareto.TabIndex = 0;
             this.chartPareto.Text = "chart1";
             // 
             // dtpEndDate
             // 
-            this.dtpEndDate.Location = new System.Drawing.Point(687, 12);
+            this.dtpEndDate.CustomFormat = "       dd MMM yy";
+            this.dtpEndDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtpEndDate.Location = new System.Drawing.Point(1013, 34);
             this.dtpEndDate.Name = "dtpEndDate";
-            this.dtpEndDate.Size = new System.Drawing.Size(200, 20);
+            this.dtpEndDate.Size = new System.Drawing.Size(140, 20);
             this.dtpEndDate.TabIndex = 8;
+            this.dtpEndDate.Value = new System.DateTime(2021, 11, 29, 0, 0, 0, 0);
+            this.dtpEndDate.ValueChanged += new System.EventHandler(this.dtpEndDate_ValueChanged);
             // 
             // btnSemana
             // 
-            this.btnSemana.Location = new System.Drawing.Point(1377, 12);
+            this.btnSemana.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSemana.ForeColor = System.Drawing.Color.Coral;
+            this.btnSemana.Location = new System.Drawing.Point(1453, 29);
             this.btnSemana.Name = "btnSemana";
-            this.btnSemana.Size = new System.Drawing.Size(200, 25);
+            this.btnSemana.Size = new System.Drawing.Size(119, 25);
             this.btnSemana.TabIndex = 4;
             this.btnSemana.Text = "semana";
             this.btnSemana.UseVisualStyleBackColor = true;
@@ -127,9 +152,11 @@
             // 
             // btnMes
             // 
-            this.btnMes.Location = new System.Drawing.Point(1171, 12);
+            this.btnMes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnMes.ForeColor = System.Drawing.Color.Coral;
+            this.btnMes.Location = new System.Drawing.Point(1330, 29);
             this.btnMes.Name = "btnMes";
-            this.btnMes.Size = new System.Drawing.Size(200, 25);
+            this.btnMes.Size = new System.Drawing.Size(124, 25);
             this.btnMes.TabIndex = 5;
             this.btnMes.Text = "mes";
             this.btnMes.UseVisualStyleBackColor = true;
@@ -137,9 +164,11 @@
             // 
             // btnCustom
             // 
-            this.btnCustom.Location = new System.Drawing.Point(965, 12);
+            this.btnCustom.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCustom.ForeColor = System.Drawing.Color.Coral;
+            this.btnCustom.Location = new System.Drawing.Point(1211, 29);
             this.btnCustom.Name = "btnCustom";
-            this.btnCustom.Size = new System.Drawing.Size(200, 25);
+            this.btnCustom.Size = new System.Drawing.Size(120, 25);
             this.btnCustom.TabIndex = 6;
             this.btnCustom.Text = "personalizado";
             this.btnCustom.UseVisualStyleBackColor = true;
@@ -147,106 +176,213 @@
             // 
             // dtpStartDate
             // 
-            this.dtpStartDate.CustomFormat = "      dddd dd/MMMM/yyyy";
-            this.dtpStartDate.Location = new System.Drawing.Point(424, 12);
+            this.dtpStartDate.CustomFormat = "       dd MMM yy";
+            this.dtpStartDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtpStartDate.Location = new System.Drawing.Point(837, 35);
             this.dtpStartDate.Name = "dtpStartDate";
-            this.dtpStartDate.Size = new System.Drawing.Size(207, 20);
+            this.dtpStartDate.Size = new System.Drawing.Size(140, 20);
             this.dtpStartDate.TabIndex = 9;
-            this.dtpStartDate.Value = new System.DateTime(2022, 12, 14, 13, 31, 0, 0);
+            this.dtpStartDate.Value = new System.DateTime(2022, 3, 14, 0, 0, 0, 0);
+            this.dtpStartDate.ValueChanged += new System.EventHandler(this.dtpStartDate_ValueChanged);
             // 
-            // dataGridView2
+            // tablaA
             // 
-            this.dataGridView2.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Col1});
-            this.dataGridView2.Location = new System.Drawing.Point(26, 74);
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.RowHeadersVisible = false;
-            this.dataGridView2.Size = new System.Drawing.Size(340, 130);
-            this.dataGridView2.TabIndex = 10;
+            this.tablaA.AllowUserToAddRows = false;
+            this.tablaA.AllowUserToDeleteRows = false;
+            this.tablaA.AllowUserToResizeColumns = false;
+            this.tablaA.AllowUserToResizeRows = false;
+            this.tablaA.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.tablaA.BackgroundColor = System.Drawing.Color.White;
+            this.tablaA.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
+            this.tablaA.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle241.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle241.BackColor = System.Drawing.Color.Transparent;
+            dataGridViewCellStyle241.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            dataGridViewCellStyle241.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle241.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle241.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle241.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.tablaA.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle241;
+            this.tablaA.ColumnHeadersHeight = 20;
+            this.tablaA.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            dataGridViewCellStyle242.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle242.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle242.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            dataGridViewCellStyle242.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle242.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle242.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle242.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.tablaA.DefaultCellStyle = dataGridViewCellStyle242;
+            this.tablaA.EnableHeadersVisualStyles = false;
+            this.tablaA.Location = new System.Drawing.Point(26, 85);
+            this.tablaA.Name = "tablaA";
+            dataGridViewCellStyle243.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle243.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            dataGridViewCellStyle243.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            dataGridViewCellStyle243.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle243.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle243.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle243.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.tablaA.RowHeadersDefaultCellStyle = dataGridViewCellStyle243;
+            this.tablaA.RowHeadersVisible = false;
+            this.tablaA.RowTemplate.Height = 31;
+            this.tablaA.Size = new System.Drawing.Size(340, 119);
+            this.tablaA.TabIndex = 10;
             // 
-            // Col1
+            // tablaB
             // 
-            this.Col1.HeaderText = "Plan A";
-            this.Col1.Name = "Col1";
-            this.Col1.ReadOnly = true;
+            this.tablaB.AllowUserToAddRows = false;
+            this.tablaB.AllowUserToDeleteRows = false;
+            this.tablaB.AllowUserToResizeColumns = false;
+            this.tablaB.AllowUserToResizeRows = false;
+            this.tablaB.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.tablaB.BackgroundColor = System.Drawing.Color.White;
+            this.tablaB.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
+            this.tablaB.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle244.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle244.BackColor = System.Drawing.Color.Transparent;
+            dataGridViewCellStyle244.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            dataGridViewCellStyle244.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle244.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle244.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle244.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.tablaB.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle244;
+            this.tablaB.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle245.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle245.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle245.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            dataGridViewCellStyle245.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle245.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle245.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle245.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.tablaB.DefaultCellStyle = dataGridViewCellStyle245;
+            this.tablaB.EnableHeadersVisualStyles = false;
+            this.tablaB.Location = new System.Drawing.Point(424, 85);
+            this.tablaB.Name = "tablaB";
+            dataGridViewCellStyle246.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle246.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            dataGridViewCellStyle246.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            dataGridViewCellStyle246.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle246.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle246.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle246.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.tablaB.RowHeadersDefaultCellStyle = dataGridViewCellStyle246;
+            this.tablaB.RowHeadersVisible = false;
+            this.tablaB.RowTemplate.Height = 31;
+            this.tablaB.Size = new System.Drawing.Size(340, 119);
+            this.tablaB.TabIndex = 11;
             // 
-            // dataGridView3
+            // tablaC
             // 
-            this.dataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView3.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.PlanB});
-            this.dataGridView3.Location = new System.Drawing.Point(415, 74);
-            this.dataGridView3.Name = "dataGridView3";
-            this.dataGridView3.RowHeadersVisible = false;
-            this.dataGridView3.Size = new System.Drawing.Size(340, 130);
-            this.dataGridView3.TabIndex = 11;
+            this.tablaC.AllowUserToAddRows = false;
+            this.tablaC.AllowUserToDeleteRows = false;
+            this.tablaC.AllowUserToResizeColumns = false;
+            this.tablaC.AllowUserToResizeRows = false;
+            this.tablaC.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.tablaC.BackgroundColor = System.Drawing.Color.White;
+            this.tablaC.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
+            this.tablaC.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle247.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle247.BackColor = System.Drawing.Color.Transparent;
+            dataGridViewCellStyle247.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            dataGridViewCellStyle247.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle247.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle247.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle247.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.tablaC.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle247;
+            this.tablaC.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle248.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle248.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle248.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            dataGridViewCellStyle248.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle248.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle248.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle248.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.tablaC.DefaultCellStyle = dataGridViewCellStyle248;
+            this.tablaC.EnableHeadersVisualStyles = false;
+            this.tablaC.Location = new System.Drawing.Point(806, 85);
+            this.tablaC.Name = "tablaC";
+            dataGridViewCellStyle249.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle249.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            dataGridViewCellStyle249.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            dataGridViewCellStyle249.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle249.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle249.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle249.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.tablaC.RowHeadersDefaultCellStyle = dataGridViewCellStyle249;
+            this.tablaC.RowHeadersVisible = false;
+            this.tablaC.RowTemplate.Height = 31;
+            this.tablaC.Size = new System.Drawing.Size(340, 119);
+            this.tablaC.TabIndex = 12;
             // 
-            // PlanB
+            // tablaD
             // 
-            this.PlanB.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.PlanB.HeaderText = "Plan B";
-            this.PlanB.Name = "PlanB";
-            // 
-            // dataGridView4
-            // 
-            this.dataGridView4.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView4.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.planC});
-            this.dataGridView4.Location = new System.Drawing.Point(806, 74);
-            this.dataGridView4.Name = "dataGridView4";
-            this.dataGridView4.RowHeadersVisible = false;
-            this.dataGridView4.Size = new System.Drawing.Size(340, 130);
-            this.dataGridView4.TabIndex = 12;
-            // 
-            // planC
-            // 
-            this.planC.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.planC.HeaderText = "Plan C";
-            this.planC.Name = "planC";
-            // 
-            // dataGridView5
-            // 
-            this.dataGridView5.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView5.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.planD});
-            this.dataGridView5.Location = new System.Drawing.Point(1197, 74);
-            this.dataGridView5.Name = "dataGridView5";
-            this.dataGridView5.RowHeadersVisible = false;
-            this.dataGridView5.Size = new System.Drawing.Size(340, 130);
-            this.dataGridView5.TabIndex = 13;
-            // 
-            // planD
-            // 
-            this.planD.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.planD.HeaderText = "Plan D";
-            this.planD.Name = "planD";
+            this.tablaD.AllowUserToAddRows = false;
+            this.tablaD.AllowUserToDeleteRows = false;
+            this.tablaD.AllowUserToResizeColumns = false;
+            this.tablaD.AllowUserToResizeRows = false;
+            this.tablaD.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.tablaD.BackgroundColor = System.Drawing.Color.White;
+            this.tablaD.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
+            this.tablaD.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle250.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle250.BackColor = System.Drawing.Color.Transparent;
+            dataGridViewCellStyle250.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            dataGridViewCellStyle250.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle250.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle250.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle250.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.tablaD.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle250;
+            this.tablaD.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle251.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle251.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle251.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            dataGridViewCellStyle251.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle251.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle251.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle251.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.tablaD.DefaultCellStyle = dataGridViewCellStyle251;
+            this.tablaD.EnableHeadersVisualStyles = false;
+            this.tablaD.Location = new System.Drawing.Point(1197, 85);
+            this.tablaD.Name = "tablaD";
+            dataGridViewCellStyle252.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle252.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            dataGridViewCellStyle252.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            dataGridViewCellStyle252.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle252.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle252.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle252.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.tablaD.RowHeadersDefaultCellStyle = dataGridViewCellStyle252;
+            this.tablaD.RowHeadersVisible = false;
+            this.tablaD.RowTemplate.Height = 31;
+            this.tablaD.Size = new System.Drawing.Size(340, 119);
+            this.tablaD.TabIndex = 13;
             // 
             // chartDisponibilidad
             // 
-            chartArea6.AxisX.IsMarginVisible = false;
-            chartArea6.AxisY.IsMarginVisible = false;
-            chartArea6.Name = "ChartArea1";
-            this.chartDisponibilidad.ChartAreas.Add(chartArea6);
-            legend6.Enabled = false;
-            legend6.Name = "Legend1";
-            this.chartDisponibilidad.Legends.Add(legend6);
-            this.chartDisponibilidad.Location = new System.Drawing.Point(724, 226);
+            this.chartDisponibilidad.BorderlineColor = System.Drawing.Color.IndianRed;
+            chartArea42.AxisX.IsMarginVisible = false;
+            chartArea42.AxisY.IsMarginVisible = false;
+            chartArea42.Name = "ChartArea1";
+            this.chartDisponibilidad.ChartAreas.Add(chartArea42);
+            legend42.Enabled = false;
+            legend42.Name = "Legend1";
+            this.chartDisponibilidad.Legends.Add(legend42);
+            this.chartDisponibilidad.Location = new System.Drawing.Point(732, 226);
             this.chartDisponibilidad.Name = "chartDisponibilidad";
-            series11.ChartArea = "ChartArea1";
-            series11.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series11.Legend = "Legend1";
-            series11.Name = "Series1";
-            series12.ChartArea = "ChartArea1";
-            series12.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Point;
-            series12.IsValueShownAsLabel = true;
-            series12.LabelFormat = "#";
-            series12.Legend = "Legend1";
-            series12.Name = "Series2";
-            this.chartDisponibilidad.Series.Add(series11);
-            this.chartDisponibilidad.Series.Add(series12);
-            this.chartDisponibilidad.Size = new System.Drawing.Size(848, 319);
+            series83.ChartArea = "ChartArea1";
+            series83.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series83.Legend = "Legend1";
+            series83.Name = "Series1";
+            series84.ChartArea = "ChartArea1";
+            series84.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Point;
+            series84.IsValueShownAsLabel = true;
+            series84.LabelFormat = "#";
+            series84.Legend = "Legend1";
+            series84.Name = "Series2";
+            this.chartDisponibilidad.Series.Add(series83);
+            this.chartDisponibilidad.Series.Add(series84);
+            this.chartDisponibilidad.Size = new System.Drawing.Size(840, 319);
             this.chartDisponibilidad.TabIndex = 14;
             this.chartDisponibilidad.Text = "chart2";
             // 
@@ -254,6 +390,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.White;
             this.label1.Location = new System.Drawing.Point(36, 9);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(318, 46);
@@ -262,41 +399,86 @@
             // 
             // btnOk
             // 
-            this.btnOk.Location = new System.Drawing.Point(909, 12);
+            this.btnOk.FlatAppearance.BorderSize = 0;
+            this.btnOk.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnOk.ForeColor = System.Drawing.Color.Brown;
+            this.btnOk.Location = new System.Drawing.Point(1162, 29);
             this.btnOk.Name = "btnOk";
             this.btnOk.Size = new System.Drawing.Size(50, 25);
             this.btnOk.TabIndex = 16;
             this.btnOk.Text = "ok";
             this.btnOk.UseVisualStyleBackColor = true;
+            this.btnOk.Visible = false;
             this.btnOk.Click += new System.EventHandler(this.btnOk_Click);
+            // 
+            // panel1
+            // 
+            this.panel1.Location = new System.Drawing.Point(26, 242);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(8, 8);
+            this.panel1.TabIndex = 17;
+            // 
+            // lblStartDate
+            // 
+            this.lblStartDate.AutoSize = true;
+            this.lblStartDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblStartDate.ForeColor = System.Drawing.Color.Silver;
+            this.lblStartDate.Location = new System.Drawing.Point(837, 35);
+            this.lblStartDate.MinimumSize = new System.Drawing.Size(140, 19);
+            this.lblStartDate.Name = "lblStartDate";
+            this.lblStartDate.Size = new System.Drawing.Size(140, 19);
+            this.lblStartDate.TabIndex = 18;
+            this.lblStartDate.Text = "Texto";
+            this.lblStartDate.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.lblStartDate.Click += new System.EventHandler(this.lblStartDate_Click);
+            // 
+            // lblEndDate
+            // 
+            this.lblEndDate.AutoSize = true;
+            this.lblEndDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblEndDate.ForeColor = System.Drawing.Color.White;
+            this.lblEndDate.Location = new System.Drawing.Point(1013, 34);
+            this.lblEndDate.MinimumSize = new System.Drawing.Size(140, 19);
+            this.lblEndDate.Name = "lblEndDate";
+            this.lblEndDate.Size = new System.Drawing.Size(140, 19);
+            this.lblEndDate.TabIndex = 19;
+            this.lblEndDate.Text = "Texto";
+            this.lblEndDate.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.lblEndDate.Click += new System.EventHandler(this.lblEndDate_Click);
             // 
             // FormDashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1584, 861);
+            this.Controls.Add(this.lblEndDate);
+            this.Controls.Add(this.lblStartDate);
+            this.Controls.Add(this.btnCustom);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.btnOk);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.chartDisponibilidad);
-            this.Controls.Add(this.dataGridView5);
-            this.Controls.Add(this.dataGridView4);
-            this.Controls.Add(this.dataGridView3);
-            this.Controls.Add(this.dataGridView2);
+            this.Controls.Add(this.tablaD);
+            this.Controls.Add(this.tablaC);
+            this.Controls.Add(this.tablaB);
+            this.Controls.Add(this.tablaA);
             this.Controls.Add(this.dtpStartDate);
             this.Controls.Add(this.dtpEndDate);
             this.Controls.Add(this.chartPareto);
             this.Controls.Add(this.tablaHrsParada);
             this.Controls.Add(this.btnSemana);
-            this.Controls.Add(this.btnCustom);
             this.Controls.Add(this.btnMes);
+            this.ForeColor = System.Drawing.Color.White;
             this.Name = "FormDashboard";
             this.Text = "Dashboard";
+            this.Load += new System.EventHandler(this.FormDashboard_Load);
             ((System.ComponentModel.ISupportInitialize)(this.tablaHrsParada)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chartPareto)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tablaA)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tablaB)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tablaC)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tablaD)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chartDisponibilidad)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -312,17 +494,15 @@
         private System.Windows.Forms.Button btnMes;
         private System.Windows.Forms.Button btnCustom;
         private System.Windows.Forms.DateTimePicker dtpStartDate;
-        private System.Windows.Forms.DataGridView dataGridView2;
-        private System.Windows.Forms.DataGridView dataGridView3;
-        private System.Windows.Forms.DataGridView dataGridView4;
-        private System.Windows.Forms.DataGridView dataGridView5;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Col1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn PlanB;
-        private System.Windows.Forms.DataGridViewTextBoxColumn planC;
-        private System.Windows.Forms.DataGridViewTextBoxColumn planD;
+        private System.Windows.Forms.DataGridView tablaA;
+        private System.Windows.Forms.DataGridView tablaB;
+        private System.Windows.Forms.DataGridView tablaC;
+        private System.Windows.Forms.DataGridView tablaD;
         private System.Windows.Forms.DataVisualization.Charting.Chart chartDisponibilidad;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ColorDialog colorDialog1;
         private System.Windows.Forms.Button btnOk;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Label lblStartDate;
+        private System.Windows.Forms.Label lblEndDate;
     }
 }
