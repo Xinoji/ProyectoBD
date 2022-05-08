@@ -1,6 +1,7 @@
 ﻿using ProyectoBD.BD;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Globalization;
 using System.Linq;
@@ -28,12 +29,15 @@ namespace ProyectoBD.Logica
         private DateTime endDate;
         private int numberDays;
 
-        public List<string> planA { get; private set; }
-        public List<string> planB { get; private set; }
-        public List<string> planC { get; private set; }
-        public List<string> planD { get; private set; }    
+        public DataTable planA { get; private set; }
+        public DataTable planB { get; private set; }
+        public DataTable planC { get; private set; }
+        public DataTable planD { get; private set; }    
         public List<KeyValuePair<string, decimal>> hrsParo { get; private set; }
         public List<HorasPorMaquina> hrsParoChart { get; private set; }
+
+
+
 
         public List<PorcentajePorFecha> dispoChart { get; private set; }
         //Constructor
@@ -48,8 +52,34 @@ namespace ProyectoBD.Logica
                 connection.Open();
                 using (var command = new SqlCommand()) 
                 {
-                   command.Connection = connection;
-                   command.CommandText = "";
+
+                    DataTable dt = new DataTable();
+                    command.Connection = connection;
+
+                    command.CommandText = "select Modelo_Maquina as [Plan A] from Reparacion where Descripcion = 'A' and Fecha Between @startDate AND @endDate";
+                    command.Parameters.Add("@startDate", System.Data.SqlDbType.Date).Value = startDate;
+                    command.Parameters.Add("@endDate", System.Data.SqlDbType.Date).Value = endDate;
+                    SqlDataAdapter adapter = new SqlDataAdapter(command);
+                    adapter.Fill(dt);
+                    planA = dt;
+
+                    command.CommandText = "select Modelo_Maquina as [Plan B] from Reparacion where Descripcion = 'B' and Fecha Between @startDate AND @endDate";
+                    adapter = new SqlDataAdapter(command);
+                    dt = new DataTable();
+                    adapter.Fill(dt);
+                    planB = dt;
+
+                    command.CommandText = "select Modelo_Maquina as [Plan C] from Reparacion where Descripcion = 'C' and Fecha Between @startDate AND @endDate";
+                    adapter = new SqlDataAdapter(command);
+                    dt = new DataTable();
+                    adapter.Fill(dt);
+                    planC = dt;
+
+                    command.CommandText = "select Modelo_Maquina as [Plan D] from Reparacion where Descripcion = 'D'  and Fecha Between @startDate AND @endDate";
+                    adapter = new SqlDataAdapter(command);
+                    dt = new DataTable();
+                    adapter.Fill(dt);
+                    planD = dt;
                 }
             }
         }
@@ -111,7 +141,7 @@ namespace ProyectoBD.Logica
                    
 
                     command.Connection = connection;
-                    command.CommandText = "select Modelo_Maquina, sum(Tiempo_Parada) as HrsParada " +
+                    command.CommandText = "select Modelo_Maquina, case when sum(Tiempo_Parada)is null then 0 else  sum(Tiempo_Parada) end as HrsParada " +
                         "from Reparacion " +
                         "where Fecha Between @startDate AND @endDate " +
                         "group by Modelo_Maquina ";
@@ -165,7 +195,7 @@ namespace ProyectoBD.Logica
                     totalProduccion = (decimal)command.ExecuteScalar();
 
 
-                    command.CommandText = "select Fecha, sum(Tiempo_Parada) as HrsParada " +
+                    command.CommandText = "select Fecha,case when sum(Tiempo_Parada)is null then 0 else  sum(Tiempo_Parada) end as HrsParada " +
                         "from Reparacion " +
                         "where Fecha Between @startDate AND @endDate " +
                         "group by Fecha ";
@@ -240,7 +270,6 @@ namespace ProyectoBD.Logica
 
 
         } //Falta Tabla Maquinas
-        
         public void LoadData(DateTime startDate, DateTime endDate) 
         {
             if (startDate != this.startDate || endDate != this.endDate)
@@ -249,9 +278,10 @@ namespace ProyectoBD.Logica
                 this.endDate = endDate;
                 this.numberDays = (endDate - startDate).Days;
 
+                getPlanes();
                 getHrs();
                 getDisponibilidad();
-
+                
             }
         }
     }
