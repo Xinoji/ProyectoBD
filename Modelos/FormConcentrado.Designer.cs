@@ -116,6 +116,7 @@
             this.panel2.Controls.Add(this.listaMecanicos);
             this.panel2.Controls.Add(this.dtpEndDate);
             this.panel2.Controls.Add(this.dtpStartDate);
+            this.panel2.ForeColor = System.Drawing.Color.White;
             this.panel2.Location = new System.Drawing.Point(3, 3);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1114, 845);
@@ -153,51 +154,61 @@
             // 
             this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.AllowUserToOrderColumns = true;
             this.dataGridView1.AllowUserToResizeRows = false;
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.Control;
             this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dataGridView1.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
+            this.dataGridView1.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnEnter;
+            this.dataGridView1.EnableHeadersVisualStyles = false;
             this.dataGridView1.Location = new System.Drawing.Point(3, 143);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
+            this.dataGridView1.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
             this.dataGridView1.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(1108, 699);
             this.dataGridView1.TabIndex = 18;
             this.dataGridView1.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellDoubleClick);
             // 
             // btnSearch
             // 
+            this.btnSearch.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.btnSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSearch.Location = new System.Drawing.Point(533, 114);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(75, 23);
             this.btnSearch.TabIndex = 17;
             this.btnSearch.Text = "buscar";
-            this.btnSearch.UseVisualStyleBackColor = true;
+            this.btnSearch.UseVisualStyleBackColor = false;
             this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
             // btnPreventivo
             // 
+            this.btnPreventivo.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.btnPreventivo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnPreventivo.Location = new System.Drawing.Point(927, 37);
             this.btnPreventivo.Name = "btnPreventivo";
             this.btnPreventivo.Size = new System.Drawing.Size(173, 23);
             this.btnPreventivo.TabIndex = 15;
             this.btnPreventivo.Text = "Agregar Preventivo";
-            this.btnPreventivo.UseVisualStyleBackColor = true;
+            this.btnPreventivo.UseVisualStyleBackColor = false;
             this.btnPreventivo.Click += new System.EventHandler(this.btnPreventivo_Click);
             // 
             // btnCorrectivo
             // 
+            this.btnCorrectivo.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.btnCorrectivo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCorrectivo.Location = new System.Drawing.Point(927, 8);
             this.btnCorrectivo.Name = "btnCorrectivo";
             this.btnCorrectivo.Size = new System.Drawing.Size(173, 23);
             this.btnCorrectivo.TabIndex = 14;
             this.btnCorrectivo.Text = "Agregar Correctivo";
-            this.btnCorrectivo.UseVisualStyleBackColor = true;
+            this.btnCorrectivo.UseVisualStyleBackColor = false;
             this.btnCorrectivo.Click += new System.EventHandler(this.btnCorrectivo_Click);
             // 
             // lblTitleReporte
@@ -262,6 +273,7 @@
             this.Controls.Add(this.splitContainer1);
             this.Name = "FormConcentrado";
             this.Text = "FormConcentrado";
+            this.Load += new System.EventHandler(this.FormConcentrado_Load);
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();

@@ -22,7 +22,7 @@ namespace ProyectoBD.Modelos
         public FormConcentrado()
         {
             InitializeComponent();
-            
+            setTheme();
             datos = new Concentrado();
             ListaPreventivo = datos.preventivoDatas;
             paneles = new ControlPreventivoCheck[5];
@@ -32,6 +32,40 @@ namespace ProyectoBD.Modelos
             ListaOperador.DataSource = datos.Operadores;
             ListaMaquinas.DataSource = datos.Maquinas;
             
+        }
+
+        private void setTheme()
+        {
+            var themeColor = WinTheme.GetAccentColor();//Windows Accent Color
+            var lightColor = ControlPaint.Light(themeColor);
+            var darkColor = ControlPaint.Dark(themeColor);
+            var lightlight = ControlPaint.LightLight(themeColor);
+            var lightdarkdarkColor = ControlPaint.Light(ControlPaint.Dark(darkColor));
+            var darklightlight = ControlPaint.Dark(lightlight);
+            var lightlightInvert = ControlPaint.LightLight(ControlPaint.Dark(WinTheme.InvertMeAColour(themeColor)));
+
+            BackColor = darkColor;
+            
+            
+            btnCorrectivo.BackColor = themeColor;
+            btnCorrectivo.FlatAppearance.BorderColor = lightColor;
+            btnPreventivo.BackColor = themeColor;
+            btnPreventivo.FlatAppearance.BorderColor = lightColor;
+            btnSearch.FlatAppearance.BorderColor = lightColor;
+
+            btnSearch.BackColor = themeColor;
+
+            dataGridView1.BackgroundColor = lightdarkdarkColor;
+            dataGridView1.DefaultCellStyle.BackColor = lightdarkdarkColor;
+            dataGridView1.DefaultCellStyle.ForeColor = Color.White;
+            dataGridView1.DefaultCellStyle.SelectionForeColor = Color.White;
+            dataGridView1.DefaultCellStyle.SelectionBackColor = lightlightInvert;
+            dataGridView1.ColumnHeadersDefaultCellStyle.BackColor = lightdarkdarkColor;
+            dataGridView1.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
+            dataGridView1.ColumnHeadersDefaultCellStyle.SelectionForeColor = Color.White;
+            dataGridView1.ColumnHeadersDefaultCellStyle.SelectionBackColor = lightdarkdarkColor;
+
+            dataGridView1.GridColor = darkColor;
         }
 
         public void deletepanel(ControlPreventivoCheck panel)
@@ -108,8 +142,16 @@ namespace ProyectoBD.Modelos
                 await getReparaciones(ListaMaquinas.SelectedValue.ToString(), listaMecanicos.SelectedValue.ToString(), ListaOperador.SelectedValue.ToString(), ListaTipo.SelectedValue.ToString(), dtpStartDate.Value, dtpEndDate.Value, dataGridView1);
                 await Task.Run(() => dt = datos.Reparacion);
                 dataGridView1.DataSource = dt;
+
+                dataGridView1.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+                dataGridView1.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+                dataGridView1.Columns[3].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+                dataGridView1.Columns[4].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCellsExceptHeader;
+                dataGridView1.Columns[5].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCellsExceptHeader;
+
+
             }
-            
+
         }
 
         private async Task getReparaciones(string maquina, string mecanico, string operador, string tipo, DateTime startDate, DateTime endDate, DataGridView tabla)
@@ -129,7 +171,7 @@ namespace ProyectoBD.Modelos
 
         private void btnPreventivo_Click(object sender, EventArgs e)
         {
-            FormPreventivo formPreventivo = new FormPreventivo();
+            FormTPreventivo formPreventivo = new FormTPreventivo();
             formPreventivo.Show();
         }
 
@@ -146,6 +188,12 @@ namespace ProyectoBD.Modelos
                 
             }
             
+        }
+
+        private void FormConcentrado_Load(object sender, EventArgs e)
+        {
+
+
         }
     }
 }

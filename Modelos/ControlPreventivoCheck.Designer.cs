@@ -99,6 +99,7 @@
             // 
             // btnReajendar
             // 
+            this.btnReajendar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnReajendar.Location = new System.Drawing.Point(121, 2);
             this.btnReajendar.Name = "btnReajendar";
             this.btnReajendar.Size = new System.Drawing.Size(37, 23);
@@ -177,6 +178,7 @@
             // 
             // btnConfirmar
             // 
+            this.btnConfirmar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnConfirmar.Location = new System.Drawing.Point(3, 86);
             this.btnConfirmar.Name = "btnConfirmar";
             this.btnConfirmar.Size = new System.Drawing.Size(402, 59);
@@ -197,6 +199,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.Silver;
             this.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.Controls.Add(this.listaMecanicos);
             this.Controls.Add(this.btnConfirmar);
@@ -210,6 +213,7 @@
             this.Controls.Add(this.lblMaquina);
             this.Controls.Add(this.lblPlan);
             this.Controls.Add(this.cbReagendar);
+            this.ForeColor = System.Drawing.Color.White;
             this.Name = "ControlPreventivoCheck";
             this.Size = new System.Drawing.Size(415, 150);
             this.panelReagendar.ResumeLayout(false);

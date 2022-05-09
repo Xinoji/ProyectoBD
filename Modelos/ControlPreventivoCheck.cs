@@ -22,6 +22,7 @@ namespace ProyectoBD.Modelos
         public ControlPreventivoCheck(PreventivoData datos, List<string> mecanicos)
          {
             InitializeComponent();
+            setTheme();
             this.datos = datos;
 
             lblMaquina.Text = datos.Maquina;
@@ -31,6 +32,23 @@ namespace ProyectoBD.Modelos
             lblPostSemana.Text = "Semana ?";
             update = new PreventivoCheck(datos.Folio);
             Enabled = (datos.Active == 1 ? true : false);
+        }
+
+        private void setTheme()
+        {
+            var themeColor = WinTheme.GetAccentColor();//Windows Accent Color
+            var lightColor = ControlPaint.Light(themeColor);
+            var darkColor = ControlPaint.Dark(themeColor);
+            var lightlight = ControlPaint.LightLight(themeColor);
+            var lightdarkdarkColor = ControlPaint.Light(ControlPaint.Dark(darkColor));
+            var darklightlight = ControlPaint.Dark(lightlight);
+            var lightlightInvert = ControlPaint.LightLight(ControlPaint.Dark(WinTheme.InvertMeAColour(themeColor)));
+
+            btnConfirmar.BackColor = themeColor;
+            btnConfirmar.ForeColor = Color.White;
+            btnConfirmar.FlatAppearance.BorderColor = lightColor;
+
+            BackColor = darklightlight;
         }
 
         public void UpdateData(PreventivoData datos) 
