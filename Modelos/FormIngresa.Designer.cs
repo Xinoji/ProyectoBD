@@ -66,6 +66,7 @@
             // 
             this.btnMecanico.Cursor = System.Windows.Forms.Cursors.Default;
             this.btnMecanico.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btnMecanico.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMecanico.Location = new System.Drawing.Point(0, 0);
             this.btnMecanico.Name = "btnMecanico";
             this.btnMecanico.Size = new System.Drawing.Size(357, 29);
@@ -89,6 +90,7 @@
             // 
             this.btnMaquina.Cursor = System.Windows.Forms.Cursors.Default;
             this.btnMaquina.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnMaquina.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMaquina.Location = new System.Drawing.Point(357, 0);
             this.btnMaquina.Name = "btnMaquina";
             this.btnMaquina.Size = new System.Drawing.Size(343, 29);
@@ -101,6 +103,7 @@
             // 
             this.btnOperador.Cursor = System.Windows.Forms.Cursors.Default;
             this.btnOperador.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnOperador.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnOperador.Location = new System.Drawing.Point(700, 0);
             this.btnOperador.Name = "btnOperador";
             this.btnOperador.Size = new System.Drawing.Size(362, 29);
@@ -142,6 +145,7 @@
             // 
             // btnActualizar
             // 
+            this.btnActualizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnActualizar.Location = new System.Drawing.Point(68, 380);
             this.btnActualizar.Name = "btnActualizar";
             this.btnActualizar.Size = new System.Drawing.Size(227, 38);
@@ -152,6 +156,7 @@
             // 
             // btnRegresar
             // 
+            this.btnRegresar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnRegresar.Location = new System.Drawing.Point(3, 380);
             this.btnRegresar.Name = "btnRegresar";
             this.btnRegresar.Size = new System.Drawing.Size(59, 38);
@@ -287,6 +292,7 @@
             // 
             // btnAgregar
             // 
+            this.btnAgregar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAgregar.Location = new System.Drawing.Point(3, 380);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(292, 38);
@@ -311,6 +317,7 @@
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
+            this.ForeColor = System.Drawing.Color.White;
             this.Name = "FormIngresa";
             this.Text = "FormIngresa";
             this.panel1.ResumeLayout(false);

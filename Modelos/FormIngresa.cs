@@ -18,12 +18,13 @@ namespace ProyectoBD.Modelos
         private bool cambiando;
         private Altas datos;
         private string key;
-
+        
         public FormIngresa()
         {
             InitializeComponent();
+            setTheme();
             btnMecanico.Enabled = false;
-            Activo = btnMecanico;
+            changeActivo(btnMecanico);
 
             btnAgregar.Click += new System.EventHandler(this.btnAgregar_Mecanico);
             btnActualizar.Click += new System.EventHandler(this.btnActualizar_Mecanico);
@@ -34,6 +35,74 @@ namespace ProyectoBD.Modelos
             ocultar();
             ResetMecanico();
             
+        }
+
+        private async Task changeActivo(object button)
+        {
+            var btn = (Button)button;
+            btn.ForeColor = WinTheme.GetAccentColor();
+            btn.BackColor = Color.White;
+            //dtpStartDate.Enabled = false;
+            //dtpEndDate.Enabled = false;
+            //btnOk.Visible = false;
+            if (Activo != btn && Activo != null)
+            {
+                Activo.BackColor = WinTheme.GetAccentColor();
+                Activo.ForeColor = Color.White;
+            }
+            Activo = btn;
+        }
+
+        private async Task setTheme()
+        {
+
+            var themeColor = WinTheme.GetAccentColor();//Windows Accent Color
+            var lightColor = ControlPaint.Light(themeColor);
+            var darkColor = ControlPaint.Dark(themeColor);
+            var lightlight = ControlPaint.LightLight(themeColor);
+            var lightdarkdarkColor = ControlPaint.Light(ControlPaint.Dark(darkColor));
+            var darklightlight = ControlPaint.Dark(lightlight);
+            var lightlightInvert = ControlPaint.LightLight(ControlPaint.Dark(WinTheme.InvertMeAColour(themeColor)));
+
+            panel2.BackColor = darklightlight;
+
+            BackColor = darkColor;
+
+            btnMecanico.BackColor = themeColor;
+            btnMecanico.ForeColor = Color.White;
+            btnMecanico.FlatAppearance.BorderColor = themeColor;
+
+            btnMaquina.BackColor = themeColor;
+            btnMaquina.ForeColor = Color.White;
+            btnMaquina.FlatAppearance.BorderColor = themeColor;
+
+            btnOperador.BackColor = themeColor;
+            btnOperador.ForeColor = Color.White;
+            btnOperador.FlatAppearance.BorderColor = themeColor;
+
+            btnAgregar.BackColor = themeColor;
+            btnAgregar.ForeColor = Color.White;
+            btnAgregar.FlatAppearance.BorderColor = themeColor;
+
+            btnRegresar.BackColor = themeColor;
+            btnRegresar.ForeColor = Color.White;
+            btnRegresar.FlatAppearance.BorderColor = themeColor;
+
+            btnActualizar.BackColor = themeColor;
+            btnActualizar.ForeColor = Color.White;
+            btnActualizar.FlatAppearance.BorderColor = themeColor;
+
+            dataGridView1.BackgroundColor = darkColor;
+            dataGridView1.DefaultCellStyle.BackColor = lightdarkdarkColor;
+            dataGridView1.DefaultCellStyle.ForeColor = Color.White;
+            dataGridView1.DefaultCellStyle.SelectionForeColor = Color.White;
+            dataGridView1.DefaultCellStyle.SelectionBackColor = lightlightInvert;
+            dataGridView1.ColumnHeadersDefaultCellStyle.BackColor = lightdarkdarkColor;
+            dataGridView1.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
+            dataGridView1.ColumnHeadersDefaultCellStyle.SelectionForeColor = Color.White;
+            dataGridView1.ColumnHeadersDefaultCellStyle.SelectionBackColor = lightlightInvert;
+
+            dataGridView1.GridColor = darkColor;
         }
 
         private async void btnControl_Click(object sender, EventArgs e)
@@ -52,7 +121,7 @@ namespace ProyectoBD.Modelos
 
                 cambiando = true;
                 Activo.Enabled = !Activo.Enabled;
-
+                changeActivo(sender);
 
                 btnAgregar.Click -= new System.EventHandler(this.btnAgregar_Mecanico);
                 btnActualizar.Click -= new System.EventHandler(this.btnActualizar_Mecanico);
@@ -69,7 +138,7 @@ namespace ProyectoBD.Modelos
                 dataGridView1.CellDoubleClick -= new System.Windows.Forms.DataGridViewCellEventHandler(this.Maquina_CellDoubleClick);
 
 
-                Activo = (Button)sender;
+                
                 ocultar();
                 if (Activo == btnMecanico)
                 {
@@ -96,6 +165,7 @@ namespace ProyectoBD.Modelos
                     dataGridView1.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.Maquina_CellDoubleClick);
                 }
                 Activo.Enabled = !Activo.Enabled;
+
             }
 
             
