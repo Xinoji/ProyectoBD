@@ -36,30 +36,31 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.btnActualizar = new System.Windows.Forms.Button();
             this.btnRegresar = new System.Windows.Forms.Button();
-            this.llenado = new System.Windows.Forms.Panel();
-            this.dtpEdad = new System.Windows.Forms.DateTimePicker();
-            this.numProduccion = new System.Windows.Forms.NumericUpDown();
-            this.lblTiempo = new System.Windows.Forms.Label();
-            this.numAlto = new System.Windows.Forms.NumericUpDown();
-            this.lblPor = new System.Windows.Forms.Label();
-            this.numAncho = new System.Windows.Forms.NumericUpDown();
-            this.lblEtiqueta = new System.Windows.Forms.Label();
-            this.tbSerie = new System.Windows.Forms.TextBox();
-            this.lblSerie = new System.Windows.Forms.Label();
-            this.tbTipoEstudio = new System.Windows.Forms.TextBox();
-            this.lblTipoEstudio = new System.Windows.Forms.Label();
-            this.tbNombre = new System.Windows.Forms.TextBox();
-            this.lblNombre = new System.Windows.Forms.Label();
             this.btnAgregar = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.lblNombre = new System.Windows.Forms.Label();
+            this.tbNombre = new System.Windows.Forms.TextBox();
+            this.lblTipoEstudio = new System.Windows.Forms.Label();
+            this.tbTipoEstudio = new System.Windows.Forms.TextBox();
+            this.lblSerie = new System.Windows.Forms.Label();
+            this.tbSerie = new System.Windows.Forms.TextBox();
+            this.lblEtiqueta = new System.Windows.Forms.Label();
+            this.numAncho = new System.Windows.Forms.NumericUpDown();
+            this.lblPor = new System.Windows.Forms.Label();
+            this.numAlto = new System.Windows.Forms.NumericUpDown();
+            this.lblTiempo = new System.Windows.Forms.Label();
+            this.numProduccion = new System.Windows.Forms.NumericUpDown();
+            this.dtpEdad = new System.Windows.Forms.DateTimePicker();
+            this.llenado = new System.Windows.Forms.Panel();
+            this.btnEliminar = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel2.SuspendLayout();
-            this.llenado.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numProduccion)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numAlto)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numAncho)).BeginInit();
             this.panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numAncho)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numAlto)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numProduccion)).BeginInit();
+            this.llenado.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnMecanico
@@ -133,6 +134,7 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.White;
+            this.panel2.Controls.Add(this.btnEliminar);
             this.panel2.Controls.Add(this.btnActualizar);
             this.panel2.Controls.Add(this.btnRegresar);
             this.panel2.Controls.Add(this.llenado);
@@ -148,7 +150,7 @@
             this.btnActualizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnActualizar.Location = new System.Drawing.Point(68, 380);
             this.btnActualizar.Name = "btnActualizar";
-            this.btnActualizar.Size = new System.Drawing.Size(227, 38);
+            this.btnActualizar.Size = new System.Drawing.Size(134, 38);
             this.btnActualizar.TabIndex = 2;
             this.btnActualizar.Text = "Actualizar";
             this.btnActualizar.UseVisualStyleBackColor = true;
@@ -165,6 +167,139 @@
             this.btnRegresar.UseVisualStyleBackColor = true;
             this.btnRegresar.Visible = false;
             this.btnRegresar.Click += new System.EventHandler(this.btnRegresar_Click);
+            // 
+            // btnAgregar
+            // 
+            this.btnAgregar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAgregar.Location = new System.Drawing.Point(3, 380);
+            this.btnAgregar.Name = "btnAgregar";
+            this.btnAgregar.Size = new System.Drawing.Size(292, 38);
+            this.btnAgregar.TabIndex = 0;
+            this.btnAgregar.Text = "Agregar";
+            this.btnAgregar.UseVisualStyleBackColor = true;
+            // 
+            // panel3
+            // 
+            this.panel3.Controls.Add(this.dataGridView1);
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel3.Location = new System.Drawing.Point(0, 29);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(764, 421);
+            this.panel3.TabIndex = 4;
+            // 
+            // lblNombre
+            // 
+            this.lblNombre.AutoSize = true;
+            this.lblNombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.lblNombre.Location = new System.Drawing.Point(3, 9);
+            this.lblNombre.Name = "lblNombre";
+            this.lblNombre.Size = new System.Drawing.Size(50, 13);
+            this.lblNombre.TabIndex = 0;
+            this.lblNombre.Text = "Nombre";
+            // 
+            // tbNombre
+            // 
+            this.tbNombre.Location = new System.Drawing.Point(6, 25);
+            this.tbNombre.Name = "tbNombre";
+            this.tbNombre.Size = new System.Drawing.Size(277, 20);
+            this.tbNombre.TabIndex = 1;
+            // 
+            // lblTipoEstudio
+            // 
+            this.lblTipoEstudio.AutoSize = true;
+            this.lblTipoEstudio.Location = new System.Drawing.Point(3, 59);
+            this.lblTipoEstudio.Name = "lblTipoEstudio";
+            this.lblTipoEstudio.Size = new System.Drawing.Size(98, 13);
+            this.lblTipoEstudio.TabIndex = 2;
+            this.lblTipoEstudio.Text = "Tipo de Maquinaria";
+            // 
+            // tbTipoEstudio
+            // 
+            this.tbTipoEstudio.Location = new System.Drawing.Point(6, 75);
+            this.tbTipoEstudio.Name = "tbTipoEstudio";
+            this.tbTipoEstudio.Size = new System.Drawing.Size(277, 20);
+            this.tbTipoEstudio.TabIndex = 3;
+            // 
+            // lblSerie
+            // 
+            this.lblSerie.AutoSize = true;
+            this.lblSerie.Location = new System.Drawing.Point(3, 109);
+            this.lblSerie.Name = "lblSerie";
+            this.lblSerie.Size = new System.Drawing.Size(86, 13);
+            this.lblSerie.TabIndex = 4;
+            this.lblSerie.Text = "Numero de Serie";
+            // 
+            // tbSerie
+            // 
+            this.tbSerie.Location = new System.Drawing.Point(6, 125);
+            this.tbSerie.Name = "tbSerie";
+            this.tbSerie.Size = new System.Drawing.Size(277, 20);
+            this.tbSerie.TabIndex = 5;
+            // 
+            // lblEtiqueta
+            // 
+            this.lblEtiqueta.AutoSize = true;
+            this.lblEtiqueta.Location = new System.Drawing.Point(3, 159);
+            this.lblEtiqueta.Name = "lblEtiqueta";
+            this.lblEtiqueta.Size = new System.Drawing.Size(46, 13);
+            this.lblEtiqueta.TabIndex = 6;
+            this.lblEtiqueta.Text = "Etiqueta";
+            // 
+            // numAncho
+            // 
+            this.numAncho.Location = new System.Drawing.Point(18, 175);
+            this.numAncho.Maximum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
+            this.numAncho.Name = "numAncho";
+            this.numAncho.Size = new System.Drawing.Size(110, 20);
+            this.numAncho.TabIndex = 7;
+            // 
+            // lblPor
+            // 
+            this.lblPor.AutoSize = true;
+            this.lblPor.Location = new System.Drawing.Point(143, 177);
+            this.lblPor.Name = "lblPor";
+            this.lblPor.Size = new System.Drawing.Size(14, 13);
+            this.lblPor.TabIndex = 8;
+            this.lblPor.Text = "X";
+            // 
+            // numAlto
+            // 
+            this.numAlto.Location = new System.Drawing.Point(172, 175);
+            this.numAlto.Maximum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
+            this.numAlto.Name = "numAlto";
+            this.numAlto.Size = new System.Drawing.Size(111, 20);
+            this.numAlto.TabIndex = 9;
+            // 
+            // lblTiempo
+            // 
+            this.lblTiempo.AutoSize = true;
+            this.lblTiempo.Location = new System.Drawing.Point(3, 215);
+            this.lblTiempo.Name = "lblTiempo";
+            this.lblTiempo.Size = new System.Drawing.Size(144, 13);
+            this.lblTiempo.TabIndex = 10;
+            this.lblTiempo.Text = "Tiempo de Produccion Diario";
+            // 
+            // numProduccion
+            // 
+            this.numProduccion.Location = new System.Drawing.Point(18, 231);
+            this.numProduccion.Name = "numProduccion";
+            this.numProduccion.Size = new System.Drawing.Size(265, 20);
+            this.numProduccion.TabIndex = 11;
+            // 
+            // dtpEdad
+            // 
+            this.dtpEdad.Location = new System.Drawing.Point(18, 175);
+            this.dtpEdad.Name = "dtpEdad";
+            this.dtpEdad.Size = new System.Drawing.Size(265, 20);
+            this.dtpEdad.TabIndex = 12;
             // 
             // llenado
             // 
@@ -186,128 +321,16 @@
             this.llenado.Size = new System.Drawing.Size(292, 368);
             this.llenado.TabIndex = 1;
             // 
-            // dtpEdad
+            // btnEliminar
             // 
-            this.dtpEdad.Location = new System.Drawing.Point(18, 175);
-            this.dtpEdad.Name = "dtpEdad";
-            this.dtpEdad.Size = new System.Drawing.Size(265, 20);
-            this.dtpEdad.TabIndex = 12;
-            // 
-            // numProduccion
-            // 
-            this.numProduccion.Location = new System.Drawing.Point(18, 231);
-            this.numProduccion.Name = "numProduccion";
-            this.numProduccion.Size = new System.Drawing.Size(265, 20);
-            this.numProduccion.TabIndex = 11;
-            // 
-            // lblTiempo
-            // 
-            this.lblTiempo.AutoSize = true;
-            this.lblTiempo.Location = new System.Drawing.Point(3, 215);
-            this.lblTiempo.Name = "lblTiempo";
-            this.lblTiempo.Size = new System.Drawing.Size(144, 13);
-            this.lblTiempo.TabIndex = 10;
-            this.lblTiempo.Text = "Tiempo de Produccion Diario";
-            // 
-            // numAlto
-            // 
-            this.numAlto.Location = new System.Drawing.Point(172, 175);
-            this.numAlto.Name = "numAlto";
-            this.numAlto.Size = new System.Drawing.Size(111, 20);
-            this.numAlto.TabIndex = 9;
-            // 
-            // lblPor
-            // 
-            this.lblPor.AutoSize = true;
-            this.lblPor.Location = new System.Drawing.Point(143, 177);
-            this.lblPor.Name = "lblPor";
-            this.lblPor.Size = new System.Drawing.Size(14, 13);
-            this.lblPor.TabIndex = 8;
-            this.lblPor.Text = "X";
-            // 
-            // numAncho
-            // 
-            this.numAncho.Location = new System.Drawing.Point(18, 175);
-            this.numAncho.Name = "numAncho";
-            this.numAncho.Size = new System.Drawing.Size(110, 20);
-            this.numAncho.TabIndex = 7;
-            // 
-            // lblEtiqueta
-            // 
-            this.lblEtiqueta.AutoSize = true;
-            this.lblEtiqueta.Location = new System.Drawing.Point(3, 159);
-            this.lblEtiqueta.Name = "lblEtiqueta";
-            this.lblEtiqueta.Size = new System.Drawing.Size(46, 13);
-            this.lblEtiqueta.TabIndex = 6;
-            this.lblEtiqueta.Text = "Etiqueta";
-            // 
-            // tbSerie
-            // 
-            this.tbSerie.Location = new System.Drawing.Point(6, 125);
-            this.tbSerie.Name = "tbSerie";
-            this.tbSerie.Size = new System.Drawing.Size(277, 20);
-            this.tbSerie.TabIndex = 5;
-            // 
-            // lblSerie
-            // 
-            this.lblSerie.AutoSize = true;
-            this.lblSerie.Location = new System.Drawing.Point(3, 109);
-            this.lblSerie.Name = "lblSerie";
-            this.lblSerie.Size = new System.Drawing.Size(86, 13);
-            this.lblSerie.TabIndex = 4;
-            this.lblSerie.Text = "Numero de Serie";
-            // 
-            // tbTipoEstudio
-            // 
-            this.tbTipoEstudio.Location = new System.Drawing.Point(6, 75);
-            this.tbTipoEstudio.Name = "tbTipoEstudio";
-            this.tbTipoEstudio.Size = new System.Drawing.Size(277, 20);
-            this.tbTipoEstudio.TabIndex = 3;
-            // 
-            // lblTipoEstudio
-            // 
-            this.lblTipoEstudio.AutoSize = true;
-            this.lblTipoEstudio.Location = new System.Drawing.Point(3, 59);
-            this.lblTipoEstudio.Name = "lblTipoEstudio";
-            this.lblTipoEstudio.Size = new System.Drawing.Size(98, 13);
-            this.lblTipoEstudio.TabIndex = 2;
-            this.lblTipoEstudio.Text = "Tipo de Maquinaria";
-            // 
-            // tbNombre
-            // 
-            this.tbNombre.Location = new System.Drawing.Point(6, 25);
-            this.tbNombre.Name = "tbNombre";
-            this.tbNombre.Size = new System.Drawing.Size(277, 20);
-            this.tbNombre.TabIndex = 1;
-            // 
-            // lblNombre
-            // 
-            this.lblNombre.AutoSize = true;
-            this.lblNombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.lblNombre.Location = new System.Drawing.Point(3, 9);
-            this.lblNombre.Name = "lblNombre";
-            this.lblNombre.Size = new System.Drawing.Size(50, 13);
-            this.lblNombre.TabIndex = 0;
-            this.lblNombre.Text = "Nombre";
-            // 
-            // btnAgregar
-            // 
-            this.btnAgregar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAgregar.Location = new System.Drawing.Point(3, 380);
-            this.btnAgregar.Name = "btnAgregar";
-            this.btnAgregar.Size = new System.Drawing.Size(292, 38);
-            this.btnAgregar.TabIndex = 0;
-            this.btnAgregar.Text = "Agregar";
-            this.btnAgregar.UseVisualStyleBackColor = true;
-            // 
-            // panel3
-            // 
-            this.panel3.Controls.Add(this.dataGridView1);
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel3.Location = new System.Drawing.Point(0, 29);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(764, 421);
-            this.panel3.TabIndex = 4;
+            this.btnEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEliminar.Location = new System.Drawing.Point(208, 380);
+            this.btnEliminar.Name = "btnEliminar";
+            this.btnEliminar.Size = new System.Drawing.Size(87, 38);
+            this.btnEliminar.TabIndex = 4;
+            this.btnEliminar.Text = "Eliminar";
+            this.btnEliminar.UseVisualStyleBackColor = true;
+            this.btnEliminar.Visible = false;
             // 
             // FormIngresa
             // 
@@ -323,12 +346,12 @@
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.panel2.ResumeLayout(false);
+            this.panel3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.numAncho)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numAlto)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numProduccion)).EndInit();
             this.llenado.ResumeLayout(false);
             this.llenado.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numProduccion)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numAlto)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numAncho)).EndInit();
-            this.panel3.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -343,21 +366,22 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button btnAgregar;
         private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.Panel llenado;
         private System.Windows.Forms.Button btnActualizar;
         private System.Windows.Forms.Button btnRegresar;
-        private System.Windows.Forms.Label lblNombre;
-        private System.Windows.Forms.Label lblEtiqueta;
-        private System.Windows.Forms.TextBox tbSerie;
-        private System.Windows.Forms.Label lblSerie;
-        private System.Windows.Forms.TextBox tbTipoEstudio;
-        private System.Windows.Forms.Label lblTipoEstudio;
-        private System.Windows.Forms.TextBox tbNombre;
+        private System.Windows.Forms.Button btnEliminar;
+        private System.Windows.Forms.Panel llenado;
         private System.Windows.Forms.DateTimePicker dtpEdad;
         private System.Windows.Forms.NumericUpDown numProduccion;
         private System.Windows.Forms.Label lblTiempo;
         private System.Windows.Forms.NumericUpDown numAlto;
         private System.Windows.Forms.Label lblPor;
         private System.Windows.Forms.NumericUpDown numAncho;
+        private System.Windows.Forms.Label lblEtiqueta;
+        private System.Windows.Forms.TextBox tbSerie;
+        private System.Windows.Forms.Label lblSerie;
+        private System.Windows.Forms.TextBox tbTipoEstudio;
+        private System.Windows.Forms.Label lblTipoEstudio;
+        private System.Windows.Forms.TextBox tbNombre;
+        private System.Windows.Forms.Label lblNombre;
     }
 }

@@ -25,9 +25,10 @@ namespace ProyectoBD.Modelos
             setTheme();
             btnMecanico.Enabled = false;
             changeActivo(btnMecanico);
-
-            btnAgregar.Click += new System.EventHandler(this.btnAgregar_Mecanico);
-            btnActualizar.Click += new System.EventHandler(this.btnActualizar_Mecanico);
+            
+            btnAgregar.Click += new System.EventHandler(btnAgregar_Mecanico);
+            btnActualizar.Click += new System.EventHandler(btnActualizar_Mecanico);
+            btnEliminar.Click += new System.EventHandler(btnEliminar_Mecanico);
             dataGridView1.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.Mecanico_CellDoubleClick);
             cambiando = false;
             datos = new Altas();
@@ -92,6 +93,10 @@ namespace ProyectoBD.Modelos
             btnActualizar.ForeColor = Color.White;
             btnActualizar.FlatAppearance.BorderColor = themeColor;
 
+            btnEliminar.BackColor = themeColor;
+            btnEliminar.ForeColor = Color.White;
+            btnEliminar.FlatAppearance.BorderColor = themeColor;
+
             dataGridView1.BackgroundColor = darkColor;
             dataGridView1.DefaultCellStyle.BackColor = lightdarkdarkColor;
             dataGridView1.DefaultCellStyle.ForeColor = Color.White;
@@ -118,23 +123,27 @@ namespace ProyectoBD.Modelos
                 btnAgregar.Visible = true;
                 btnActualizar.Visible = false;
                 btnRegresar.Visible = false;
+                btnEliminar.Visible = false;
 
                 cambiando = true;
                 Activo.Enabled = !Activo.Enabled;
                 changeActivo(sender);
 
-                btnAgregar.Click -= new System.EventHandler(this.btnAgregar_Mecanico);
-                btnActualizar.Click -= new System.EventHandler(this.btnActualizar_Mecanico);
+                btnAgregar.Click -= new System.EventHandler(btnAgregar_Mecanico);
+                btnActualizar.Click -= new System.EventHandler(btnActualizar_Mecanico);
+                btnEliminar.Click -= new System.EventHandler(btnEliminar_Mecanico);
                 dataGridView1.CellDoubleClick -= new System.Windows.Forms.DataGridViewCellEventHandler(this.Mecanico_CellDoubleClick);
 
 
-                btnAgregar.Click -= new System.EventHandler(this.btnAgregar_Operador);
-                btnActualizar.Click -= new System.EventHandler(this.btnActualizar_Operador);
+                btnAgregar.Click -= new System.EventHandler(btnAgregar_Operador);
+                btnActualizar.Click -= new System.EventHandler(btnActualizar_Operador);
+                btnEliminar.Click -= new System.EventHandler(btnEliminar_Operador);
                 dataGridView1.CellDoubleClick -= new System.Windows.Forms.DataGridViewCellEventHandler(this.Operador_CellDoubleClick);
                 
 
-                btnAgregar.Click -= new System.EventHandler(this.btnAgregar_Maquina);
-                btnActualizar.Click -= new System.EventHandler(this.btnActualizar_Maquina);
+                btnAgregar.Click -= new System.EventHandler(btnAgregar_Maquina);
+                btnActualizar.Click -= new System.EventHandler(btnActualizar_Maquina);
+                btnEliminar.Click -= new System.EventHandler(btnEliminar_Maquina);
                 dataGridView1.CellDoubleClick -= new System.Windows.Forms.DataGridViewCellEventHandler(this.Maquina_CellDoubleClick);
 
 
@@ -144,24 +153,27 @@ namespace ProyectoBD.Modelos
                 {
                     getMecanicos();
                     ResetMecanico();
-                    btnAgregar.Click += new System.EventHandler(this.btnAgregar_Mecanico);
-                    btnActualizar.Click += new System.EventHandler(this.btnActualizar_Mecanico);
+                    btnAgregar.Click += new System.EventHandler(btnAgregar_Mecanico);
+                    btnActualizar.Click += new System.EventHandler(btnActualizar_Mecanico);
+                    btnEliminar.Click += new System.EventHandler(btnEliminar_Mecanico);
                     dataGridView1.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.Mecanico_CellDoubleClick);
                 }
                 if (Activo == btnOperador)
                 {
                     getOperadores();
                     ResetOperador();
-                    btnAgregar.Click += new System.EventHandler(this.btnAgregar_Operador);
-                    btnActualizar.Click += new System.EventHandler(this.btnActualizar_Operador);
+                    btnAgregar.Click += new System.EventHandler(btnAgregar_Operador);
+                    btnActualizar.Click += new System.EventHandler(btnActualizar_Operador);
+                    btnEliminar.Click += new System.EventHandler(btnEliminar_Operador);
                     dataGridView1.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.Operador_CellDoubleClick);
                 }
                 if (Activo == btnMaquina)
                 {
                     getMaquinas();
                     ResetMaquina();
-                    btnAgregar.Click += new System.EventHandler(this.btnAgregar_Maquina);
-                    btnActualizar.Click += new System.EventHandler(this.btnActualizar_Maquina);
+                    btnAgregar.Click += new System.EventHandler(btnAgregar_Maquina);
+                    btnActualizar.Click += new System.EventHandler(btnActualizar_Maquina);
+                    btnEliminar.Click += new System.EventHandler(btnEliminar_Maquina);
                     dataGridView1.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.Maquina_CellDoubleClick);
                 }
                 Activo.Enabled = !Activo.Enabled;
@@ -176,18 +188,21 @@ namespace ProyectoBD.Modelos
         {
             datos.insertMaquina(tbNombre.Text, numProduccion.Value, tbTipoEstudio.Text, tbSerie.Text, (int)numAncho.Value, (int)numAlto.Value);
             getMaquinas();
+            ResetMaquina();
         }
 
         private void btnAgregar_Operador(object sender, EventArgs e)
         {
             datos.insertOperador(tbNombre.Text,tbTipoEstudio.Text);
             getOperadores();
+            ResetOperador();
         }
 
         private void btnAgregar_Mecanico(object sender, EventArgs e)
         {
             datos.insertMecanico(tbNombre.Text,tbTipoEstudio.Text,dtpEdad.Value);
             getMecanicos();
+            ResetMecanico();
         }
 
         private void btnActualizar_Maquina(object sender, EventArgs e)
@@ -206,6 +221,26 @@ namespace ProyectoBD.Modelos
         {
             datos.updateMecanico(tbNombre.Text, tbTipoEstudio.Text, dtpEdad.Value, key);
             getMecanicos();
+        }
+
+        private void btnEliminar_Mecanico(object sender, EventArgs e)
+        {
+            datos.deleteMecanico(key);
+            getMecanicos();
+            ResetMecanico();
+        }
+
+        private void btnEliminar_Operador(object sender, EventArgs e)
+        {
+            datos.deleteOperador(key);
+            getOperadores();
+            ResetOperador();
+        }
+        private void btnEliminar_Maquina(object sender, EventArgs e)
+        {
+            datos.deleteMaquina(key);
+            getMaquinas();
+            ResetMaquina();
         }
 
         private async Task getMecanicos()
@@ -235,6 +270,7 @@ namespace ProyectoBD.Modelos
             btnAgregar.Visible = false;
             btnActualizar.Visible = true;
             btnRegresar.Visible = true;
+            btnEliminar.Visible = true;
             //realizar un control 
             try
             {
@@ -276,6 +312,7 @@ namespace ProyectoBD.Modelos
             btnAgregar.Visible = false;
             btnActualizar.Visible = true;
             btnRegresar.Visible = true;
+            btnEliminar.Visible = true;
         }
 
         private void Mecanico_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
@@ -298,7 +335,7 @@ namespace ProyectoBD.Modelos
             btnAgregar.Visible = false;
             btnActualizar.Visible = true;
             btnRegresar.Visible = true;
-            
+            btnEliminar.Visible = true;
         }
 
         private void btnRegresar_Click(object sender, EventArgs e)
@@ -306,6 +343,7 @@ namespace ProyectoBD.Modelos
             btnAgregar.Visible = !btnAgregar.Visible;
             btnActualizar.Visible = !btnActualizar.Visible;
             btnRegresar.Visible = !btnRegresar.Visible;
+            btnEliminar.Visible = !btnEliminar.Visible;
             tbNombre.Text = "";
             tbTipoEstudio.Text = "";
             tbSerie.Text = "";
