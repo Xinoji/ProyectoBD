@@ -115,9 +115,7 @@ namespace ProyectoBD.Logica
             }
         }
         public void update_correctivo(int folio,ref List<update_element> list_reparacion,ref List<update_element> list_reporte) {
-            Console.WriteLine("UPDATE ON REPARACION");
             update_table(folio,ref list_reparacion,"Reparacion");
-            Console.WriteLine("UPDATE ON REPORTE");
             update_table(folio,ref list_reporte, "Reporte");
         }
         public int insert_reparacion(ref List<update_element> lista){
@@ -217,8 +215,6 @@ namespace ProyectoBD.Logica
                 {
                     text_query += ',';
                 }
-                else primero = false;
-
 
                 text_query += "folio) values (";
 
@@ -239,7 +235,6 @@ namespace ProyectoBD.Logica
                 {
                     text_query += ',';
                 }
-                else primero = false;
 
                 text_query += "@f);";
 
@@ -352,24 +347,16 @@ namespace ProyectoBD.Logica
                 {
                     if (reader.Read())
                     {
-                        try
-                        {
-                            tmp_reporte.folio = (int)reader[0];
-                            tmp_reporte.fecha = (DateTime)reader[1];
-                            tmp_reporte.maquina = (string)reader[2];
-                            tmp_reporte.descripcion = (string)reader[3];
-                            tmp_reporte.mecanico = (string)reader[4];
-                            tmp_reporte.operador = (string)reader[5];
-                            tmp_reporte.parada = (decimal)reader[6];
-                            tmp_reporte.reparacion = (decimal)reader[7];
-                            tmp_reporte.causa = (string)reader[8];
-                            tmp_reporte.solucion = (string)reader[9];
-                        }
-                        catch (Exception ex)
-                        {
-                            Console.WriteLine("Error" + ex.Message);//<-Esto es temporal xD
-                        }
-
+                        try { tmp_reporte.folio = (int)reader[0]; } catch (Exception ex){ tmp_reporte.folio = -1; }
+                        try { tmp_reporte.fecha = (DateTime)reader[1]; } catch (Exception ex) { tmp_reporte.fecha = DateTime.Today; }
+                        try { tmp_reporte.maquina = (string)reader[2]; } catch (Exception ex) { tmp_reporte.maquina = ""; }
+                        try { tmp_reporte.descripcion = (string)reader[3]; } catch (Exception ex) { tmp_reporte.descripcion = ""; }
+                        try { tmp_reporte.mecanico = (string)reader[4]; } catch (Exception ex) { tmp_reporte.mecanico = ""; }
+                        try { tmp_reporte.operador = (string)reader[5]; } catch (Exception ex) { tmp_reporte.operador = ""; }
+                        try { tmp_reporte.parada = (decimal)reader[6]; } catch (Exception ex) { tmp_reporte.parada = 0; }
+                        try { tmp_reporte.reparacion = (decimal)reader[7]; } catch (Exception ex) { tmp_reporte.reparacion = 0; }
+                        try { tmp_reporte.causa = (string)reader[8]; } catch (Exception ex) { tmp_reporte.causa = ""; }
+                        try { tmp_reporte.solucion = (string)reader[9]; } catch (Exception ex) { tmp_reporte.solucion = ""; }
                     }
                 }
 
