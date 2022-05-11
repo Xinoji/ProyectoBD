@@ -55,6 +55,7 @@
             // 
             this.select_maquina.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.select_maquina.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.select_maquina.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.select_maquina.Location = new System.Drawing.Point(363, 39);
             this.select_maquina.Name = "select_maquina";
             this.select_maquina.Size = new System.Drawing.Size(123, 21);
@@ -62,6 +63,7 @@
             // 
             // select_mecanico
             // 
+            this.select_mecanico.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.select_mecanico.FormattingEnabled = true;
             this.select_mecanico.Location = new System.Drawing.Point(287, 207);
             this.select_mecanico.Name = "select_mecanico";
@@ -70,6 +72,7 @@
             // 
             // select_operador
             // 
+            this.select_operador.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.select_operador.FormattingEnabled = true;
             this.select_operador.Location = new System.Drawing.Point(26, 206);
             this.select_operador.Name = "select_operador";
@@ -115,6 +118,8 @@
             // 
             // b_subir
             // 
+            this.b_subir.FlatAppearance.BorderSize = 0;
+            this.b_subir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.b_subir.Location = new System.Drawing.Point(24, 370);
             this.b_subir.Name = "b_subir";
             this.b_subir.Size = new System.Drawing.Size(462, 42);
@@ -164,7 +169,7 @@
             // 
             this.l_solucion.AutoSize = true;
             this.l_solucion.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.l_solucion.Location = new System.Drawing.Point(290, 231);
+            this.l_solucion.Location = new System.Drawing.Point(284, 231);
             this.l_solucion.Name = "l_solucion";
             this.l_solucion.Size = new System.Drawing.Size(54, 15);
             this.l_solucion.TabIndex = 13;

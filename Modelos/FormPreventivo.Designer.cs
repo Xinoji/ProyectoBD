@@ -28,103 +28,73 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.listBox1 = new System.Windows.Forms.ListBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.btnAdd = new System.Windows.Forms.Button();
-            this.btnOk = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.maquina_select = new System.Windows.Forms.ComboBox();
+            this.b_mandar = new System.Windows.Forms.Button();
+            this.panel_grid = new System.Windows.Forms.Panel();
+            this.year_select = new System.Windows.Forms.NumericUpDown();
+            ((System.ComponentModel.ISupportInitialize)(this.year_select)).BeginInit();
             this.SuspendLayout();
             // 
-            // dateTimePicker1
+            // maquina_select
             // 
-            this.dateTimePicker1.CustomFormat = "yyyy";
-            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimePicker1.Location = new System.Drawing.Point(354, 12);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.ShowUpDown = true;
-            this.dateTimePicker1.Size = new System.Drawing.Size(80, 20);
-            this.dateTimePicker1.TabIndex = 0;
+            this.maquina_select.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.maquina_select.FormattingEnabled = true;
+            this.maquina_select.Location = new System.Drawing.Point(304, 16);
+            this.maquina_select.Margin = new System.Windows.Forms.Padding(0);
+            this.maquina_select.Name = "maquina_select";
+            this.maquina_select.Size = new System.Drawing.Size(131, 21);
+            this.maquina_select.TabIndex = 2;
             // 
-            // listBox1
+            // b_mandar
             // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.Items.AddRange(new object[] {
-            "1",
-            "2",
-            "3",
-            "4",
-            "5",
-            "6",
-            "7",
-            "8",
-            "9",
-            "10"});
-            this.listBox1.Location = new System.Drawing.Point(12, 38);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(214, 394);
-            this.listBox1.TabIndex = 2;
+            this.b_mandar.FlatAppearance.BorderSize = 0;
+            this.b_mandar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.b_mandar.Location = new System.Drawing.Point(679, 16);
+            this.b_mandar.Margin = new System.Windows.Forms.Padding(0);
+            this.b_mandar.Name = "b_mandar";
+            this.b_mandar.Size = new System.Drawing.Size(65, 21);
+            this.b_mandar.TabIndex = 3;
+            this.b_mandar.Text = "Modificar";
+            this.b_mandar.UseVisualStyleBackColor = true;
             // 
-            // dataGridView1
+            // panel_grid
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(646, 38);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(152, 394);
-            this.dataGridView1.TabIndex = 3;
+            this.panel_grid.Location = new System.Drawing.Point(80, 78);
+            this.panel_grid.Name = "panel_grid";
+            this.panel_grid.Size = new System.Drawing.Size(676, 130);
+            this.panel_grid.TabIndex = 5;
             // 
-            // panel1
+            // year_select
             // 
-            this.panel1.Location = new System.Drawing.Point(232, 38);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(350, 354);
-            this.panel1.TabIndex = 4;
+            this.year_select.Location = new System.Drawing.Point(12, 16);
+            this.year_select.Name = "year_select";
+            this.year_select.Size = new System.Drawing.Size(120, 20);
+            this.year_select.TabIndex = 6;
             // 
-            // btnAdd
-            // 
-            this.btnAdd.Location = new System.Drawing.Point(603, 38);
-            this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(22, 23);
-            this.btnAdd.TabIndex = 5;
-            this.btnAdd.Text = "+";
-            this.btnAdd.UseVisualStyleBackColor = true;
-            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
-            // 
-            // btnOk
-            // 
-            this.btnOk.Location = new System.Drawing.Point(232, 398);
-            this.btnOk.Name = "btnOk";
-            this.btnOk.Size = new System.Drawing.Size(292, 23);
-            this.btnOk.TabIndex = 6;
-            this.btnOk.Text = "button1";
-            this.btnOk.UseVisualStyleBackColor = true;
-            // 
-            // FormPreventivo
+            // FormTPreventivo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.btnOk);
-            this.Controls.Add(this.btnAdd);
-            this.Controls.Add(this.panel1);
-            this.Controls.Add(this.dataGridView1);
-            this.Controls.Add(this.listBox1);
-            this.Controls.Add(this.dateTimePicker1);
-            this.Name = "FormPreventivo";
-            this.Text = "FormPreventivo";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.ClientSize = new System.Drawing.Size(756, 229);
+            this.Controls.Add(this.year_select);
+            this.Controls.Add(this.panel_grid);
+            this.Controls.Add(this.b_mandar);
+            this.Controls.Add(this.maquina_select);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
+            this.Name = "FormTPreventivo";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Form1";
+            ((System.ComponentModel.ISupportInitialize)(this.year_select)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
-        private System.Windows.Forms.ListBox listBox1;
-        private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Button btnAdd;
-        private System.Windows.Forms.Button btnOk;
+        private System.Windows.Forms.ComboBox maquina_select;
+        private System.Windows.Forms.Button b_mandar;
+        private System.Windows.Forms.Panel panel_grid;
+        private System.Windows.Forms.NumericUpDown year_select;
     }
 }

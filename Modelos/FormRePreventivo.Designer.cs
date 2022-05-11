@@ -38,9 +38,10 @@
             // 
             // lector_semana
             // 
+            this.lector_semana.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.lector_semana.Location = new System.Drawing.Point(154, 9);
             this.lector_semana.Name = "lector_semana";
-            this.lector_semana.Size = new System.Drawing.Size(158, 20);
+            this.lector_semana.Size = new System.Drawing.Size(158, 13);
             this.lector_semana.TabIndex = 0;
             // 
             // contextMenuStrip1
@@ -50,6 +51,8 @@
             // 
             // b_cancel
             // 
+            this.b_cancel.FlatAppearance.BorderSize = 0;
+            this.b_cancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.b_cancel.Location = new System.Drawing.Point(47, 52);
             this.b_cancel.Name = "b_cancel";
             this.b_cancel.Size = new System.Drawing.Size(82, 24);
@@ -59,6 +62,8 @@
             // 
             // b_reagendar
             // 
+            this.b_reagendar.FlatAppearance.BorderSize = 0;
+            this.b_reagendar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.b_reagendar.Location = new System.Drawing.Point(210, 52);
             this.b_reagendar.Name = "b_reagendar";
             this.b_reagendar.Size = new System.Drawing.Size(83, 24);
@@ -85,7 +90,11 @@
             this.Controls.Add(this.b_reagendar);
             this.Controls.Add(this.b_cancel);
             this.Controls.Add(this.lector_semana);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "FormRePreventivo";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "Reagendar";
             this.ResumeLayout(false);
             this.PerformLayout();

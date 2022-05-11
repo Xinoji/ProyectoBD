@@ -26,6 +26,7 @@ namespace ProyectoBD.Modelos
         private List<update_element> list_reporte = new List<update_element>();
 
         private void init_llenado() {
+            setTheme();
             list_maquinas = llenado.get_list_query("Modelo", "maquinas");
             list_operador = llenado.get_list_query("nombre", "operador");
             list_mecanico = llenado.get_list_query("nombre", "Mecanico");
@@ -57,12 +58,9 @@ namespace ProyectoBD.Modelos
         private void init_llenado_update() {
             init_llenado();
 
-            int indice = select_maquina.FindString(reporte.maquina);
-            select_maquina.SelectedIndex = indice;
-            indice = select_operador.FindString(reporte.operador);
-            select_operador.SelectedIndex = indice;
-            indice = select_mecanico.FindString(reporte.mecanico);
-            select_mecanico.SelectedIndex = indice;
+            select_maquina.SelectedIndex = select_maquina.FindString(reporte.maquina);
+            select_operador.SelectedIndex = select_operador.FindString(reporte.operador);
+            select_mecanico.SelectedIndex = select_mecanico.FindString(reporte.mecanico);
 
             text_descripcion.Text = reporte.descripcion;
             text_causa.Text = reporte.causa;
@@ -72,8 +70,80 @@ namespace ProyectoBD.Modelos
             tiempo_reparacion.Value = reporte.reparacion;
 
             fecha.Value = reporte.fecha;
+        }
 
+        private async Task setTheme()
+        {
+            
+            var wintheme = WinTheme.GetAccentColor();
+            var invtheme = WinTheme.InvertMeAColour(wintheme);
+            var lightColor = ControlPaint.Light(wintheme);
+            var darkColor = ControlPaint.Dark(wintheme);
+            var lightlight = ControlPaint.LightLight(wintheme);
+            var lightdarkdarkColor = ControlPaint.Light(ControlPaint.Dark(darkColor));
+            var darklightlight = ControlPaint.Dark(lightlight);
+            var lightlightInvert = ControlPaint.LightLight(ControlPaint.Dark(WinTheme.InvertMeAColour(wintheme)));
 
+            Color back = Color.White;
+            Color fore = Color.White;
+            Color select_back = Color.White;
+            Color select_fore = Color.White;
+            Color b_back = Color.White;
+            Color b_fore = Color.White;
+
+            if (FormPreventivo.is_cool_color(wintheme))
+            {
+                back = ControlPaint.Dark(wintheme, 0.2f);
+            }
+            else {
+                back = FormPreventivo.color_desaturate(wintheme,0.2);
+            }
+
+            b_back = WinTheme.InvertMeAColour(lightlight);
+
+            select_back = ControlPaint.Light(back, 0.1f);
+
+            if (FormPreventivo.is_dark_color(select_back))
+                select_fore = Color.White;
+            else select_fore = darkColor;
+
+            if (FormPreventivo.is_dark_color(b_back))
+                b_fore = Color.White;
+            else b_fore = darkColor;
+
+            BackColor = back;
+            ForeColor = select_fore;
+
+            l_causa.BackColor = select_back;
+            l_descripcion.BackColor = select_back;
+            l_fecha.BackColor = select_back;
+            l_maquina.BackColor = select_back;
+            l_mecanico.BackColor = select_back;
+            l_operador.BackColor = select_back;
+            l_parada.BackColor = select_back;
+            l_reparacion.BackColor = select_back;
+            l_solucion.BackColor = select_back;
+
+            text_causa.BackColor = select_back;
+            text_causa.ForeColor = select_fore;
+            text_descripcion.BackColor = select_back;
+            text_descripcion.ForeColor = select_fore;
+            text_solucion.BackColor = select_back;
+            text_solucion.ForeColor = select_fore;
+            select_maquina.BackColor = select_back;
+            select_maquina.ForeColor = select_fore;
+            select_mecanico.BackColor = select_back;
+            select_mecanico.ForeColor = select_fore;
+            select_operador.BackColor = select_back;
+            select_operador.ForeColor = select_fore;
+
+            tiempo_parada.BackColor = select_back;
+            tiempo_parada.ForeColor = select_fore;
+            tiempo_reparacion.BackColor = select_back;
+            tiempo_reparacion.ForeColor = select_fore;
+
+            b_subir.BackColor = b_back;
+            b_subir.ForeColor = b_fore;
         }
         private void insert_update_element(ref update_element element, ref List<update_element> lista) {
             bool encontrado = false;
@@ -92,8 +162,8 @@ namespace ProyectoBD.Modelos
                 lista.Add(element);
             }
         }
-        private string agregar_comillas(string text) { 
-            return "'" + text + "'";
+        private string agregar_comillas(string text) {
+            return "'" + text.Replace(@"'", "") + "'";
         }
         private void cb_update(object sender, EventArgs e, ref List<update_element> lista) {
             ComboBox cb = (ComboBox)sender;
