@@ -161,6 +161,54 @@ namespace ProyectoBD.Logica
                 }
             }
         }
+
+        public void deleteMecanico(string where)
+        {
+            using (var connection = GetConnection())
+            {
+                connection.Open();
+                using (var command = new SqlCommand())
+                {
+                    command.Connection = connection;
+                    command.CommandText = "delete from [mecanico] where [nombre]  = @Where";
+                    command.Parameters.Add("@Where", System.Data.SqlDbType.VarChar).Value = where;
+                    command.ExecuteNonQuery();
+
+                }
+            }
+        }
+
+        public void deleteOperador(string where)
+        {
+            using (var connection = GetConnection())
+            {
+                connection.Open();
+                using (var command = new SqlCommand())
+                {
+                    command.Connection = connection;
+                    command.CommandText = "delete from [operador] where [nombre]  = @Where";
+                    command.Parameters.Add("@Where", System.Data.SqlDbType.VarChar).Value = where;
+                    command.ExecuteNonQuery();
+
+                }
+            }
+        }
+
+        public void deleteMaquina(string where)
+        {
+            using (var connection = GetConnection())
+            {
+                connection.Open();
+                using (var command = new SqlCommand())
+                {
+                    command.Connection = connection;
+                    command.CommandText = "delete from [maquinas] where [modelo]  = @Where";
+                    command.Parameters.Add("@Where", System.Data.SqlDbType.VarChar).Value = where;
+                    command.ExecuteNonQuery();
+
+                }
+            }
+        }
     }
     
 }
