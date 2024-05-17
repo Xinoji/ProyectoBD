@@ -9,6 +9,7 @@ using System.Globalization;
 using System.Data.SqlClient;
 using System.Data;
 using System.Drawing;
+using Npgsql;
 
 namespace ProyectoBD.Logica
 {
@@ -205,15 +206,15 @@ namespace ProyectoBD.Logica
         }
 
         public void leer_preventivos(ref List<element_plan> in_query, int year, string maquina) {
-            using (SqlConnection connection = GetConnection())
+            using (NpgsqlConnection connection = GetConnection())
             {
                 string s_query = "select Fecha,Descripcion,Folio from Reparacion where " +
                                  "year(Fecha) = @f and tipo_Mantto = 'PREVENTIVO' and Modelo_Maquina = @m";
 
-                SqlCommand query = new SqlCommand(s_query, connection);
+                NpgsqlCommand query = new NpgsqlCommand(s_query, connection);
 
-                query.Parameters.Add("@f", SqlDbType.Int);
-                query.Parameters.Add("@m", SqlDbType.VarChar);
+                query.Parameters.Add("@f", NpgsqlTypes.NpgsqlDbType.Integer);
+                query.Parameters.Add("@m", NpgsqlTypes.NpgsqlDbType.Varchar);
 
                 query.Parameters["@f"].Value = year;
                 query.Parameters["@m"].Value = maquina;
@@ -228,7 +229,7 @@ namespace ProyectoBD.Logica
                     //Mostrar error
                 }
 
-                using (SqlDataReader reader = query.ExecuteReader())
+                using (NpgsqlDataReader reader = query.ExecuteReader())
                 {
                     while (reader.Read())
                     {
@@ -252,9 +253,9 @@ namespace ProyectoBD.Logica
 
         public bool leer_maquinas(ref List<string> maquinas)
         {
-            using (SqlConnection connection = GetConnection())
+            using (NpgsqlConnection connection = GetConnection())
             {
-                SqlCommand query = new SqlCommand("select Modelo from maquinas", connection);
+                NpgsqlCommand query = new NpgsqlCommand("select Modelo from maquinas", connection);
 
                 try
                 {
@@ -266,7 +267,7 @@ namespace ProyectoBD.Logica
                     return false;
                 }
 
-                using (SqlDataReader reader = query.ExecuteReader())
+                using (NpgsqlDataReader reader = query.ExecuteReader())
                 {
                     while (reader.Read())
                     {
@@ -287,14 +288,14 @@ namespace ProyectoBD.Logica
         }
         public int query_reagendar(element_plan ep)
         {
-            using (SqlConnection connection = GetConnection())
+            using (NpgsqlConnection connection = GetConnection())
             {
                 string s_query = "update Reparacion set Fecha = @f where Folio = @fo";
 
-                SqlCommand query = new SqlCommand(s_query, connection);
+                NpgsqlCommand query = new NpgsqlCommand(s_query, connection);
 
-                query.Parameters.Add("@f", SqlDbType.DateTime);
-                query.Parameters.Add("@fo", SqlDbType.Int);
+                query.Parameters.Add("@f", NpgsqlTypes.NpgsqlDbType.Timestamp);
+                query.Parameters.Add("@fo", NpgsqlTypes.NpgsqlDbType.Integer);
 
                 query.Parameters["@f"].Value = parse_semana(ep.semana);
                 query.Parameters["@fo"].Value = ep.folio;
@@ -324,13 +325,13 @@ namespace ProyectoBD.Logica
         }
         public void query_eliminar(int folio)
         {
-            using (SqlConnection connection = GetConnection())
+            using (NpgsqlConnection connection = GetConnection())
             {
                 string s_query = "delete from Reparacion where Folio = @f";
 
-                SqlCommand query = new SqlCommand(s_query, connection);
+                NpgsqlCommand query = new NpgsqlCommand(s_query, connection);
 
-                query.Parameters.Add("@f", SqlDbType.Int);
+                query.Parameters.Add("@f", NpgsqlTypes.NpgsqlDbType.Integer);
 
                 query.Parameters["@f"].Value = folio;
 
@@ -359,16 +360,16 @@ namespace ProyectoBD.Logica
 
         public int query_agregar(string maquina, int semana, int plan)
         {
-            using (SqlConnection connection = GetConnection())
+            using (NpgsqlConnection connection = GetConnection())
             {
                 string s_query = "insert into Reparacion(Modelo_Maquina,tipo_Mantto,Fecha,Descripcion) values " +
                                   "(@m,'PREVENTIVO',@f,@p) select @@IDENTITY;";
 
-                SqlCommand query = new SqlCommand(s_query, connection);
+                NpgsqlCommand query = new NpgsqlCommand(s_query, connection);
 
-                query.Parameters.Add("@m", SqlDbType.VarChar);
-                query.Parameters.Add("@f", SqlDbType.DateTime);
-                query.Parameters.Add("@p", SqlDbType.VarChar);
+                query.Parameters.Add("@m", NpgsqlTypes.NpgsqlDbType.Varchar);
+                query.Parameters.Add("@f", NpgsqlTypes.NpgsqlDbType.Timestamp);
+                query.Parameters.Add("@p", NpgsqlTypes.NpgsqlDbType.Varchar);
 
                 query.Parameters["@m"].Value = maquina;
                 query.Parameters["@f"].Value = parse_semana(semana);
@@ -386,7 +387,7 @@ namespace ProyectoBD.Logica
 
                 int folio = -1;
 
-                using (SqlDataReader reader = query.ExecuteReader())
+                using (NpgsqlDataReader reader = query.ExecuteReader())
                 {
                     while (reader.Read())
                     {

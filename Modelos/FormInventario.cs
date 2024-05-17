@@ -6,12 +6,13 @@ using System.Drawing;
 using System.Data.SqlClient;
 using System.Windows.Forms;
 using static ProyectoBD.Logica.refacciones;
+using Npgsql;
 namespace ProyectoBD.Modelos
 {
 
     public partial class FormInventario : Form
     {
-        SqlConnection conexion = new SqlConnection("Server =localhost\\SQLEXPRESS; Database = Lito; Trusted_Connection = True; ");
+        NpgsqlConnection conexion = new NpgsqlConnection("Server =localhost\\SQLEXPRESS; Database = Lito; Trusted_Connection = True; ");
         refacciones refac = new refacciones();
 
        
@@ -44,7 +45,7 @@ namespace ProyectoBD.Modelos
             for (int i = 0; i <= dgvinventario.Rows.Count - 1; i++)
             {
                 
-                SqlCommand command = new SqlCommand("Update Refaccion set Stock=@Stock,precio=@precio,Descripcion=@Descripcion,cant_min=@cant_min, cant_max=@cant_max  where codigo=@codigo; ", conexion);
+                NpgsqlCommand command = new NpgsqlCommand("Update Refaccion set Stock=@Stock,precio=@precio,Descripcion=@Descripcion,cant_min=@cant_min, cant_max=@cant_max  where codigo=@codigo; ", conexion);
                 command.Parameters.AddWithValue("@Stock", dgvinventario.Rows[i].Cells[1].Value ?? (object)DBNull.Value);
                 command.Parameters.AddWithValue("@precio", dgvinventario.Rows[i].Cells[2].Value ?? (object)DBNull.Value);
                 //command.Parameters.AddWithValue("@precioT", dgvinventario.Rows[i].Cells[3].Value);
@@ -62,7 +63,7 @@ namespace ProyectoBD.Modelos
         {
 
 
-                SqlCommand command = new SqlCommand("UPDATE Refaccion SET Stock = Stock + @Parm1  where codigo=@codigo; ", conexion);
+                NpgsqlCommand command = new NpgsqlCommand("UPDATE Refaccion SET Stock = Stock + @Parm1  where codigo=@codigo; ", conexion);
                 command.Parameters.AddWithValue("@Parm1", int.Parse(txtCantidad.Text));
                 command.Parameters.AddWithValue("@codigo", txtCodigo.Text);
                 conexion.Open();
@@ -81,9 +82,9 @@ namespace ProyectoBD.Modelos
 
         public void buscarRefaccion()
         {
-            SqlCommand command = new SqlCommand("Select * from Refaccion where codigo=@parm1", conexion);
+            NpgsqlCommand command = new NpgsqlCommand("Select * from Refaccion where codigo=@parm1", conexion);
             command.Parameters.AddWithValue("@parm1", txtCodigo.Text);
-            SqlDataAdapter da = new SqlDataAdapter();
+            NpgsqlDataAdapter da = new NpgsqlDataAdapter();
             da.SelectCommand = command;
             DataTable dt = new DataTable();
             da.Fill(dt);

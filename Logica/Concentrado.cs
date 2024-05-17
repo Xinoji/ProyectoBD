@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using ProyectoBD.BD;
 using System.Windows;
+using Npgsql;
 
 namespace ProyectoBD.Logica
 {
@@ -50,7 +51,7 @@ namespace ProyectoBD.Logica
             using (var connection = GetConnection())
             {
                 connection.Open();
-                using (var command = new SqlCommand())
+                using (var command = new NpgsqlCommand())
                 {
 
                     command.Connection = connection;
@@ -61,41 +62,45 @@ namespace ProyectoBD.Logica
                     if (operador != "Operador")
                     {
                         where = where + "and (Repo.Operador = @operador) ";
-                        command.Parameters.Add("@operador", SqlDbType.VarChar).Value = operador;
+                        command.Parameters.Add("@operador", NpgsqlTypes.NpgsqlDbType.Varchar).Value = operador;
                        
                     }
                     if (tipo != "Tipo")
                     {
                         where = where + "and (Repa.tipo_Mantto = @tipo) ";
-                        command.Parameters.Add("@tipo", SqlDbType.VarChar).Value = tipo;
+                        command.Parameters.Add("@tipo", NpgsqlTypes.NpgsqlDbType.Varchar).Value = tipo;
                         
                     }
                     if (maquina != "Maquinas")
                     {
                         where = where + "and (Repa.Modelo_Maquina = @maquina) ";
-                        command.Parameters.Add("@maquina", SqlDbType.VarChar).Value = maquina;
+                        command.Parameters.Add("@maquina", NpgsqlTypes.NpgsqlDbType.Varchar).Value = maquina;
                        
                     }
                     if (mecanico != "Mecanico")
                     {
                         where = where + "and (Repa.nom_Mecanico = @mecanico) ";
-                        command.Parameters.Add("@mecanica", SqlDbType.VarChar).Value = mecanico;
+                        command.Parameters.Add("@mecanica", NpgsqlTypes.NpgsqlDbType.Varchar).Value = mecanico;
                        
                     }
                     command.CommandText = select + from + where;
-                    command.Parameters.Add("@startDate", SqlDbType.Date).Value = startDate;
-                    command.Parameters.Add("@endDate", SqlDbType.Date).Value = endDate;
+                    command.Parameters.Add("@startDate", NpgsqlTypes.NpgsqlDbType.Date).Value = startDate;
+                    command.Parameters.Add("@endDate", NpgsqlTypes.NpgsqlDbType.Date).Value = endDate;
 
 
                     var resultTable = new DataTable();
-                    SqlDataAdapter adapter = new SqlDataAdapter(command);
+                    NpgsqlDataAdapter adapter = new NpgsqlDataAdapter(command);
 
                     adapter.Fill(resultTable);
                     
 
                     Reparacion = resultTable;
+
+                    connection.Close();
+                    CloseSSH();
                     return Reparacion;
                 }
+                
             }
             
         }
@@ -105,7 +110,7 @@ namespace ProyectoBD.Logica
             using (var connection = GetConnection())
             {
                 connection.Open();
-                using (var command = new SqlCommand())
+                using (var command = new NpgsqlCommand())
                 {
 
                     command.Connection = connection;
@@ -140,7 +145,7 @@ namespace ProyectoBD.Logica
             using (var connection = GetConnection())
             {
                 connection.Open();
-                using (var command = new SqlCommand())
+                using (var command = new NpgsqlCommand())
                 {
 
                     command.Connection = connection;
@@ -167,7 +172,7 @@ namespace ProyectoBD.Logica
             using (var connection = GetConnection())
             {
                 connection.Open();
-                using (var command = new SqlCommand())
+                using (var command = new NpgsqlCommand())
                 {
 
                     command.Connection = connection;
@@ -193,15 +198,15 @@ namespace ProyectoBD.Logica
             using (var connection = GetConnection())
             {
                 connection.Open();
-                using (var command = new SqlCommand())
+                using (var command = new NpgsqlCommand())
                 {
 
                     command.Connection = connection;
                     command.CommandText = "select Folio, Modelo_Maquina, Descripcion as 'Plan', Fecha, case when nom_Mecanico is null then 1 else 0 end " +
                         "from reparacion " +
                         "where (nom_Mecanico is null and Fecha < @endWeek) or (Fecha between @startWeek and @endWeek);"; //agregar between luners y viernes
-                    command.Parameters.Add("@startWeek", System.Data.SqlDbType.Date).Value = DateTime.Now.AddDays(1 - (int)DateTime.Now.DayOfWeek);
-                    command.Parameters.Add("@endWeek", System.Data.SqlDbType.Date).Value = DateTime.Now.AddDays(5 - (int)DateTime.Now.DayOfWeek);
+                    command.Parameters.Add("@startWeek", NpgsqlTypes.NpgsqlDbType.Date).Value = DateTime.Now.AddDays(1 - (int)DateTime.Now.DayOfWeek);
+                    command.Parameters.Add("@endWeek", NpgsqlTypes.NpgsqlDbType.Date).Value = DateTime.Now.AddDays(5 - (int)DateTime.Now.DayOfWeek);
                     var reader = command.ExecuteReader();
 
                     var resultTable = new List<PreventivoData>();

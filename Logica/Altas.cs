@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using ProyectoBD.BD;
-using System.Data.SqlClient;
+using Npgsql;
 
 namespace ProyectoBD.Logica 
 {
@@ -25,19 +25,23 @@ namespace ProyectoBD.Logica
             using (var connection = GetConnection())
             {
                 connection.Open();
-                using (var command = new SqlCommand())
+                using (var command = new NpgsqlCommand())
                 {
                     command.Connection = connection;
                     
                     command.CommandText = "select * from " + from;
 
                     var resultTable = new DataTable();
-                    SqlDataAdapter adapter = new SqlDataAdapter(command);
+                    NpgsqlDataAdapter adapter = new NpgsqlDataAdapter(command);
 
                     adapter.Fill(resultTable);
                     tabla = resultTable;
+                    connection.Close();
+                    CloseSSH();
                     return resultTable;
                 }
+                
+
             }
         }
 
@@ -46,13 +50,13 @@ namespace ProyectoBD.Logica
             using (var connection = GetConnection())
             {
                 connection.Open();
-                using (var command = new SqlCommand())
+                using (var command = new NpgsqlCommand())
                 {
 
                     command.Connection = connection;
                     command.CommandText = "insert into operador values (@operador,@tipo);";
-                    command.Parameters.Add("@operador", System.Data.SqlDbType.VarChar).Value = nombre;
-                    command.Parameters.Add("@tipo", System.Data.SqlDbType.VarChar).Value = tipo;
+                    command.Parameters.Add("@operador", NpgsqlTypes.NpgsqlDbType.Varchar).Value = nombre;
+                    command.Parameters.Add("@tipo", NpgsqlTypes.NpgsqlDbType.Varchar).Value = tipo;
                     command.ExecuteNonQuery();
 
                 }
@@ -65,13 +69,13 @@ namespace ProyectoBD.Logica
             using (var connection = GetConnection())
             {
                 connection.Open();
-                using (var command = new SqlCommand())
+                using (var command = new NpgsqlCommand())
                 {
                     command.Connection = connection;
                     command.CommandText = "update [operador] set [nombre] = @Nombre, [Tipo de Maquinaria] = @Tipo where [nombre] = @Where";
-                    command.Parameters.Add("@Nombre", System.Data.SqlDbType.VarChar).Value = nombre;
-                    command.Parameters.Add("@Tipo", System.Data.SqlDbType.VarChar).Value = tipo;
-                    command.Parameters.Add("@Where", System.Data.SqlDbType.VarChar).Value = where;
+                    command.Parameters.Add("@Nombre", NpgsqlTypes.NpgsqlDbType.Varchar).Value = nombre;
+                    command.Parameters.Add("@Tipo", NpgsqlTypes.NpgsqlDbType.Varchar).Value = tipo;
+                    command.Parameters.Add("@Where", NpgsqlTypes.NpgsqlDbType.Varchar).Value = where;
                     command.ExecuteNonQuery();
 
                 }
@@ -83,14 +87,14 @@ namespace ProyectoBD.Logica
             using (var connection = GetConnection())
             {
                 connection.Open();
-                using (var command = new SqlCommand())
+                using (var command = new NpgsqlCommand())
                 {
 
                     command.Connection = connection;
                     command.CommandText = "insert into mecanico values (@operador,@tipo,@fNac);";
-                    command.Parameters.Add("@operador", System.Data.SqlDbType.VarChar).Value = nombre;
-                    command.Parameters.Add("@tipo", System.Data.SqlDbType.VarChar).Value = estudios;
-                    command.Parameters.Add("@fNac", System.Data.SqlDbType.Date).Value = fNac;
+                    command.Parameters.Add("@operador", NpgsqlTypes.NpgsqlDbType.Varchar).Value = nombre;
+                    command.Parameters.Add("@tipo", NpgsqlTypes.NpgsqlDbType.Varchar).Value = estudios;
+                    command.Parameters.Add("@fNac", NpgsqlTypes.NpgsqlDbType.Date).Value = fNac;
                     command.ExecuteNonQuery();
 
                 }
@@ -103,14 +107,14 @@ namespace ProyectoBD.Logica
             using (var connection = GetConnection())
             {
                 connection.Open();
-                using (var command = new SqlCommand())
+                using (var command = new NpgsqlCommand())
                 {
                     command.Connection = connection;
                     command.CommandText = "update [mecanico] set [nombre] = @Nombre, [Estudios] = @Estudio, [F_Nac] = @fNac where [nombre] = @Where";
-                    command.Parameters.Add("@Nombre", System.Data.SqlDbType.VarChar).Value = nombre;
-                    command.Parameters.Add("@Estudio", System.Data.SqlDbType.VarChar).Value = estudios;
-                    command.Parameters.Add("@fNac", System.Data.SqlDbType.Date).Value = fNac;
-                    command.Parameters.Add("@Where", System.Data.SqlDbType.VarChar).Value = where;
+                    command.Parameters.Add("@Nombre", NpgsqlTypes.NpgsqlDbType.Varchar).Value = nombre;
+                    command.Parameters.Add("@Estudio", NpgsqlTypes.NpgsqlDbType.Varchar).Value = estudios;
+                    command.Parameters.Add("@fNac", NpgsqlTypes.NpgsqlDbType.Date).Value = fNac;
+                    command.Parameters.Add("@Where", NpgsqlTypes.NpgsqlDbType.Varchar).Value = where;
                     command.ExecuteNonQuery();
 
                 }
@@ -122,17 +126,17 @@ namespace ProyectoBD.Logica
             using (var connection = GetConnection())
             {
                 connection.Open();
-                using (var command = new SqlCommand())
+                using (var command = new NpgsqlCommand())
                 {
 
                     command.Connection = connection;
                     command.CommandText = "insert into maquinas values (@modelo,@tiempo,@tipo,@serie,@ancho,@alto);";
-                    command.Parameters.Add("@modelo", System.Data.SqlDbType.VarChar).Value = modelo;
-                    command.Parameters.Add("@tiempo", System.Data.SqlDbType.Decimal).Value = tiempo;
-                    command.Parameters.Add("@tipo", System.Data.SqlDbType.VarChar).Value = tipo;
-                    command.Parameters.Add("@serie", System.Data.SqlDbType.VarChar).Value = nSerie;
-                    command.Parameters.Add("@ancho", System.Data.SqlDbType.Int).Value = ancho;
-                    command.Parameters.Add("@alto", System.Data.SqlDbType.Int).Value = alto;
+                    command.Parameters.Add("@modelo", NpgsqlTypes.NpgsqlDbType.Varchar).Value = modelo;
+                    command.Parameters.Add("@tiempo", NpgsqlTypes.NpgsqlDbType.Numeric).Value = tiempo;
+                    command.Parameters.Add("@tipo", NpgsqlTypes.NpgsqlDbType.Varchar).Value = tipo;
+                    command.Parameters.Add("@serie", NpgsqlTypes.NpgsqlDbType.Varchar).Value = nSerie;
+                    command.Parameters.Add("@ancho", NpgsqlTypes.NpgsqlDbType.Integer).Value = ancho;
+                    command.Parameters.Add("@alto", NpgsqlTypes.NpgsqlDbType.Integer).Value = alto;
                     command.ExecuteNonQuery();
 
                 }
@@ -145,17 +149,17 @@ namespace ProyectoBD.Logica
             using (var connection = GetConnection())
             {
                 connection.Open();
-                using (var command = new SqlCommand())
+                using (var command = new NpgsqlCommand())
                 {
                     command.Connection = connection;
                     command.CommandText = "update [maquinas] set [Modelo] = @modelo, [Tiempo_Produccion] = @tiempo, [tipo] = @tipo, [N_Serie] = @serie,[Etiqueta_Ancho] = @ancho, [EtiquetaAlto] = @alto where [modelo]  = @Where";
-                    command.Parameters.Add("@modelo", System.Data.SqlDbType.VarChar).Value = modelo;
-                    command.Parameters.Add("@tiempo", System.Data.SqlDbType.Decimal).Value = tiempo;
-                    command.Parameters.Add("@tipo", System.Data.SqlDbType.VarChar).Value = tipo;
-                    command.Parameters.Add("@serie", System.Data.SqlDbType.VarChar).Value = nSerie;
-                    command.Parameters.Add("@ancho", System.Data.SqlDbType.Int).Value = ancho;
-                    command.Parameters.Add("@alto", System.Data.SqlDbType.Int).Value = alto;
-                    command.Parameters.Add("@Where", System.Data.SqlDbType.VarChar).Value = where;
+                    command.Parameters.Add("@modelo", NpgsqlTypes.NpgsqlDbType.Varchar).Value = modelo;
+                    command.Parameters.Add("@tiempo", NpgsqlTypes.NpgsqlDbType.Numeric).Value = tiempo;
+                    command.Parameters.Add("@tipo", NpgsqlTypes.NpgsqlDbType.Varchar).Value = tipo;
+                    command.Parameters.Add("@serie", NpgsqlTypes.NpgsqlDbType.Varchar).Value = nSerie;
+                    command.Parameters.Add("@ancho", NpgsqlTypes.NpgsqlDbType.Integer).Value = ancho;
+                    command.Parameters.Add("@alto", NpgsqlTypes.NpgsqlDbType.Integer).Value = alto;
+                    command.Parameters.Add("@Where", NpgsqlTypes.NpgsqlDbType.Varchar).Value = where;
                     command.ExecuteNonQuery();
 
                 }
@@ -167,11 +171,11 @@ namespace ProyectoBD.Logica
             using (var connection = GetConnection())
             {
                 connection.Open();
-                using (var command = new SqlCommand())
+                using (var command = new NpgsqlCommand())
                 {
                     command.Connection = connection;
                     command.CommandText = "delete from [mecanico] where [nombre]  = @Where";
-                    command.Parameters.Add("@Where", System.Data.SqlDbType.VarChar).Value = where;
+                    command.Parameters.Add("@Where", NpgsqlTypes.NpgsqlDbType.Varchar).Value = where;
                     command.ExecuteNonQuery();
 
                 }
@@ -183,11 +187,11 @@ namespace ProyectoBD.Logica
             using (var connection = GetConnection())
             {
                 connection.Open();
-                using (var command = new SqlCommand())
+                using (var command = new NpgsqlCommand())
                 {
                     command.Connection = connection;
                     command.CommandText = "delete from [operador] where [nombre]  = @Where";
-                    command.Parameters.Add("@Where", System.Data.SqlDbType.VarChar).Value = where;
+                    command.Parameters.Add("@Where", NpgsqlTypes.NpgsqlDbType.Varchar).Value = where;
                     command.ExecuteNonQuery();
 
                 }
@@ -199,11 +203,11 @@ namespace ProyectoBD.Logica
             using (var connection = GetConnection())
             {
                 connection.Open();
-                using (var command = new SqlCommand())
+                using (var command = new NpgsqlCommand())
                 {
                     command.Connection = connection;
                     command.CommandText = "delete from [maquinas] where [modelo]  = @Where";
-                    command.Parameters.Add("@Where", System.Data.SqlDbType.VarChar).Value = where;
+                    command.Parameters.Add("@Where", NpgsqlTypes.NpgsqlDbType.Varchar).Value = where;
                     command.ExecuteNonQuery();
 
                 }

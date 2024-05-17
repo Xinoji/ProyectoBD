@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 
 using System.Data.SqlClient;
 using System.Data;
+using Npgsql;
 
 namespace ProyectoBD.Logica
 {
@@ -62,7 +63,7 @@ namespace ProyectoBD.Logica
         private void update_table(int folio, ref List<update_element> lista, string table) {
             if (lista.Count == 0) return;
 
-            using (SqlConnection connection = GetConnection())
+            using (NpgsqlConnection connection = GetConnection())
             {
                 string text_query = "update " + table + " set ";
 
@@ -85,9 +86,9 @@ namespace ProyectoBD.Logica
 
                 Console.WriteLine(text_query);
 
-                SqlCommand query = new SqlCommand(text_query, connection);
+                NpgsqlCommand query = new NpgsqlCommand(text_query, connection);
 
-                query.Parameters.Add("@f", SqlDbType.Int);
+                query.Parameters.Add("@f", NpgsqlTypes.NpgsqlDbType.Integer);
                 query.Parameters["@f"].Value = folio;
 
                 try
@@ -121,7 +122,7 @@ namespace ProyectoBD.Logica
         public int insert_reparacion(ref List<update_element> lista){
             if (lista.Count == 0) return -1;
 
-            using (SqlConnection connection = GetConnection())
+            using (NpgsqlConnection connection = GetConnection())
             {
                 string text_query = "insert into Reparacion(";
 
@@ -157,7 +158,7 @@ namespace ProyectoBD.Logica
 
                 Console.WriteLine(text_query);
 
-                SqlCommand query = new SqlCommand(text_query, connection);
+                NpgsqlCommand query = new NpgsqlCommand(text_query, connection);
 
                 try
                 {
@@ -171,7 +172,7 @@ namespace ProyectoBD.Logica
 
                 int new_folio = -1;
 
-                using (SqlDataReader reader = query.ExecuteReader())
+                using (NpgsqlDataReader reader = query.ExecuteReader())
                 {
                     while (reader.Read())
                     {
@@ -194,7 +195,7 @@ namespace ProyectoBD.Logica
         public int insert_reporte(ref List<update_element> lista,int folio) {
             if (folio == -1) return -1;
 
-            using (SqlConnection connection = GetConnection())
+            using (NpgsqlConnection connection = GetConnection())
             {
                 string text_query = "insert into Reporte(";
 
@@ -240,9 +241,9 @@ namespace ProyectoBD.Logica
 
                 Console.WriteLine(text_query);
 
-                SqlCommand query = new SqlCommand(text_query, connection);
+                NpgsqlCommand query = new NpgsqlCommand(text_query, connection);
 
-                query.Parameters.Add("@f", SqlDbType.Int);
+                query.Parameters.Add("@f", NpgsqlTypes.NpgsqlDbType.Integer);
                 query.Parameters["@f"].Value = folio;
 
                 try
@@ -285,10 +286,10 @@ namespace ProyectoBD.Logica
         public List<string> get_list_query(string name, string table) {
             List<string> lista = new List<string>();
 
-            using (SqlConnection connection = GetConnection()) { 
+            using (NpgsqlConnection connection = GetConnection()) { 
                 string text_query = "select " + name + " from " + table;
 
-                SqlCommand query = new SqlCommand(text_query, connection);
+                NpgsqlCommand query = new NpgsqlCommand(text_query, connection);
 
                 try
                 {
@@ -300,7 +301,7 @@ namespace ProyectoBD.Logica
                     //Mostrar error
                 }
 
-                using (SqlDataReader reader = query.ExecuteReader())
+                using (NpgsqlDataReader reader = query.ExecuteReader())
                 {
                     while (reader.Read())
                     {
@@ -324,12 +325,12 @@ namespace ProyectoBD.Logica
         public Reporte get_reporte(int folio) {
             Reporte tmp_reporte = new Reporte();
 
-            using (SqlConnection connection = GetConnection()) {
+            using (NpgsqlConnection connection = GetConnection()) {
                 string text_query = "select r.Folio,Fecha,Modelo_Maquina,Descripcion,nom_Mecanico,Operador,Tiempo_Parada,Tiempo_Reparacion,Causa,Solucion " + 
                                     "from Reporte as r inner join Reparacion as re on re.Folio = r.Folio where r.Folio = @f;";
-                SqlCommand query = new SqlCommand(text_query, connection);
+                NpgsqlCommand query = new NpgsqlCommand(text_query, connection);
 
-                query.Parameters.Add("@f", SqlDbType.Int);
+                query.Parameters.Add("@f", NpgsqlTypes.NpgsqlDbType.Integer);
 
                 query.Parameters["@f"].Value = folio;
 
@@ -343,20 +344,20 @@ namespace ProyectoBD.Logica
                     //Mostrar error
                 }
 
-                using (SqlDataReader reader = query.ExecuteReader())
+                using (NpgsqlDataReader reader = query.ExecuteReader())
                 {
                     if (reader.Read())
                     {
-                        try { tmp_reporte.folio = (int)reader[0]; } catch (Exception ex){ tmp_reporte.folio = -1; }
-                        try { tmp_reporte.fecha = (DateTime)reader[1]; } catch (Exception ex) { tmp_reporte.fecha = DateTime.Today; }
-                        try { tmp_reporte.maquina = (string)reader[2]; } catch (Exception ex) { tmp_reporte.maquina = ""; }
-                        try { tmp_reporte.descripcion = (string)reader[3]; } catch (Exception ex) { tmp_reporte.descripcion = ""; }
-                        try { tmp_reporte.mecanico = (string)reader[4]; } catch (Exception ex) { tmp_reporte.mecanico = ""; }
-                        try { tmp_reporte.operador = (string)reader[5]; } catch (Exception ex) { tmp_reporte.operador = ""; }
-                        try { tmp_reporte.parada = (decimal)reader[6]; } catch (Exception ex) { tmp_reporte.parada = 0; }
-                        try { tmp_reporte.reparacion = (decimal)reader[7]; } catch (Exception ex) { tmp_reporte.reparacion = 0; }
-                        try { tmp_reporte.causa = (string)reader[8]; } catch (Exception ex) { tmp_reporte.causa = ""; }
-                        try { tmp_reporte.solucion = (string)reader[9]; } catch (Exception ex) { tmp_reporte.solucion = ""; }
+                        try { tmp_reporte.folio = (int)reader[0]; } catch (Exception){ tmp_reporte.folio = -1; }
+                        try { tmp_reporte.fecha = (DateTime)reader[1]; } catch (Exception) { tmp_reporte.fecha = DateTime.Today; }
+                        try { tmp_reporte.maquina = (string)reader[2]; } catch (Exception) { tmp_reporte.maquina = ""; }
+                        try { tmp_reporte.descripcion = (string)reader[3]; } catch (Exception) { tmp_reporte.descripcion = ""; }
+                        try { tmp_reporte.mecanico = (string)reader[4]; } catch (Exception) { tmp_reporte.mecanico = ""; }
+                        try { tmp_reporte.operador = (string)reader[5]; } catch (Exception) { tmp_reporte.operador = ""; }
+                        try { tmp_reporte.parada = (decimal)reader[6]; } catch (Exception) { tmp_reporte.parada = 0; }
+                        try { tmp_reporte.reparacion = (decimal)reader[7]; } catch (Exception) { tmp_reporte.reparacion = 0; }
+                        try { tmp_reporte.causa = (string)reader[8]; } catch (Exception) { tmp_reporte.causa = ""; }
+                        try { tmp_reporte.solucion = (string)reader[9]; } catch (Exception) { tmp_reporte.solucion = ""; }
                     }
                 }
 

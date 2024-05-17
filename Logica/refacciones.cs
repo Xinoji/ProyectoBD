@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Npgsql;
 using ProyectoBD.BD;
 
 namespace ProyectoBD.Logica
@@ -18,8 +19,8 @@ namespace ProyectoBD.Logica
         {
             using (var conexion = GetConnection())
             {
-                SqlCommand command = new SqlCommand("Select * from refaccion",conexion);
-                SqlDataAdapter da = new SqlDataAdapter();
+                NpgsqlCommand command = new NpgsqlCommand("Select * from refaccion",conexion);
+                NpgsqlDataAdapter da = new NpgsqlDataAdapter();
                 da.SelectCommand = command;
                 DataTable dt = new DataTable();
                 da.Fill(dt);

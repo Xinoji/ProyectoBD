@@ -1,4 +1,5 @@
-﻿using ProyectoBD.BD;
+﻿using Npgsql;
+using ProyectoBD.BD;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -50,33 +51,33 @@ namespace ProyectoBD.Logica
         {
             using (var connection = GetConnection()) {
                 connection.Open();
-                using (var command = new SqlCommand()) 
+                using (var command = new NpgsqlCommand()) 
                 {
 
                     DataTable dt = new DataTable();
                     command.Connection = connection;
 
                     command.CommandText = "select Modelo_Maquina as [Plan A] from Reparacion where Descripcion = 'A' and Fecha Between @startDate AND @endDate";
-                    command.Parameters.Add("@startDate", System.Data.SqlDbType.Date).Value = startDate;
-                    command.Parameters.Add("@endDate", System.Data.SqlDbType.Date).Value = endDate;
-                    SqlDataAdapter adapter = new SqlDataAdapter(command);
+                    command.Parameters.Add("@startDate", NpgsqlTypes.NpgsqlDbType.Date).Value = startDate;
+                    command.Parameters.Add("@endDate", NpgsqlTypes.NpgsqlDbType.Date).Value = endDate;
+                    NpgsqlDataAdapter adapter = new NpgsqlDataAdapter(command);
                     adapter.Fill(dt);
                     planA = dt;
 
                     command.CommandText = "select Modelo_Maquina as [Plan B] from Reparacion where Descripcion = 'B' and Fecha Between @startDate AND @endDate";
-                    adapter = new SqlDataAdapter(command);
+                    adapter = new NpgsqlDataAdapter(command);
                     dt = new DataTable();
                     adapter.Fill(dt);
                     planB = dt;
 
                     command.CommandText = "select Modelo_Maquina as [Plan C] from Reparacion where Descripcion = 'C' and Fecha Between @startDate AND @endDate";
-                    adapter = new SqlDataAdapter(command);
+                    adapter = new NpgsqlDataAdapter(command);
                     dt = new DataTable();
                     adapter.Fill(dt);
                     planC = dt;
 
                     command.CommandText = "select Modelo_Maquina as [Plan D] from Reparacion where Descripcion = 'D'  and Fecha Between @startDate AND @endDate";
-                    adapter = new SqlDataAdapter(command);
+                    adapter = new NpgsqlDataAdapter(command);
                     dt = new DataTable();
                     adapter.Fill(dt);
                     planD = dt;
@@ -119,7 +120,7 @@ namespace ProyectoBD.Logica
             using (var connection = GetConnection())
             {
                 connection.Open();
-                using (var command = new SqlCommand())
+                using (var command = new NpgsqlCommand())
                 {
                     decimal totalHoras;
                     command.Connection = connection;
@@ -127,8 +128,8 @@ namespace ProyectoBD.Logica
                         "from Reparacion " +
                         "where Fecha Between @startDate AND @endDate";
 
-                    command.Parameters.Add("@startDate", System.Data.SqlDbType.Date).Value = startDate;
-                    command.Parameters.Add("@endDate", System.Data.SqlDbType.Date).Value = endDate;
+                    command.Parameters.Add("@startDate", NpgsqlTypes.NpgsqlDbType.Date).Value = startDate;
+                    command.Parameters.Add("@endDate", NpgsqlTypes.NpgsqlDbType.Date).Value = endDate;
                     try
                     {
                         totalHoras = (decimal)command.ExecuteScalar();
@@ -182,7 +183,7 @@ namespace ProyectoBD.Logica
             using (var connection = GetConnection())
             {
                 connection.Open();
-                using (var command = new SqlCommand())
+                using (var command = new NpgsqlCommand())
                 {
                     decimal totalProduccion;
                     int nDias;
@@ -200,8 +201,8 @@ namespace ProyectoBD.Logica
                         "where Fecha Between @startDate AND @endDate " +
                         "group by Fecha ";
 
-                    command.Parameters.Add("@startDate", System.Data.SqlDbType.Date).Value = startDate;
-                    command.Parameters.Add("@endDate", System.Data.SqlDbType.Date).Value = endDate;
+                    command.Parameters.Add("@startDate", NpgsqlTypes.NpgsqlDbType.Date).Value = startDate;
+                    command.Parameters.Add("@endDate", NpgsqlTypes.NpgsqlDbType.Date).Value = endDate;
                     var reader = command.ExecuteReader();
 
                     var resultTable = new List<KeyValuePair<DateTime, decimal>>();

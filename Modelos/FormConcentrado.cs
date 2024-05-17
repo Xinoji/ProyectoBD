@@ -166,12 +166,12 @@ namespace ProyectoBD.Modelos
             formLlenado.Show();
             
         }
-            
+
 
 
         private void btnPreventivo_Click(object sender, EventArgs e)
         {
-            FormTPreventivo formPreventivo = new FormTPreventivo();
+            FormPreventivo formPreventivo = new FormPreventivo();
             formPreventivo.Show();
         }
 
